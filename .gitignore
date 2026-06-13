@@ -1,5 +1,9 @@
 .next
 node_modules
+# OpenNext / Cloudflare build + local state
+.open-next
+.wrangler
+cloudflare-env.d.ts
 .env
 .env.*.local
 .env.local

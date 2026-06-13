@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ted-lending",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-03-25",
+  // nodejs_compat is required by the OpenNext adapter so the app keeps the Node
+  // runtime (node:crypto for the revalidate HMAC, Buffer, etc.).
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  }
+  // For persistent ISR + on-demand revalidateTag across instances, add an R2
+  // bucket here and wire it in open-next.config.ts (see note in that file).
+}
