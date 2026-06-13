@@ -125,8 +125,8 @@ export default async function HomePage({
       <WhyUs whyUs={site.content.why_us} locale={locale} />
       <Founder founder={site.content.founder} locale={locale} />
       <Testimonials testimonials={site.testimonials} locale={locale} />
-      <LeadForm courses={site.courses} />
       <ContactChannels />
+      <LeadForm courses={site.courses} />
       <Footer
         contacts={site.content.contacts}
         locale={locale}

@@ -32,7 +32,7 @@ export async function Nav({
     // Points at the in-page ContactChannels section (#contacts), not the footer
     // (#contact): the footer is the last element, so anchoring there clamps the
     // scroll to the document bottom ("jumps too far"). #contacts lands cleanly
-    // just below the sticky nav; the footer with the map sits right beneath it.
+    // just below the sticky nav; the trial-lesson form and footer sit beneath it.
     // The id reads "contacts" so the URL hash matches the "Contacts" nav label.
     { href: '#contacts', label: t('contact') },
   ];
