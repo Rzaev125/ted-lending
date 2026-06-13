@@ -1,0 +1,156 @@
+@import 'tailwindcss';
+
+/* ============================================================================
+ * Design tokens — ported from index.html.
+ * Tailwind v4 uses @theme for design-system tokens; everything below becomes a
+ * CSS variable AND a Tailwind utility (e.g. `bg-glass-bg`).
+ * ============================================================================ */
+@theme {
+  --color-bg-start: #E6E1F5;
+  --color-bg-mid: #F1ECF9;
+  --color-bg-end: #ffffff;
+
+  --color-ink: #0c1424;
+  --color-ink-2: #3b4456;
+  --color-ink-3: #6b7588;
+
+  /* Brand axis — derived from the logo: indigo #0a0799 → magenta #a601a9.
+     primary is the logo indigo lifted for UI contrast/hover; the exact #0a0799
+     is used as the deepest anchor in the Founder gradient and bg/blob tints. */
+  --color-primary: #2415C2;
+  --color-primary-2: #A601A9;
+  --color-accent-pink: #C42BB0;
+  --color-accent-mint: #5A2BD8;
+  --color-accent-amber: #8E18BE;
+
+  --color-glass-bg: rgba(255, 255, 255, 0.62);
+  --color-glass-bg-strong: rgba(255, 255, 255, 0.78);
+  --color-glass-border: rgba(255, 255, 255, 0.55);
+  --color-glass-border-soft: rgba(255, 255, 255, 0.35);
+
+  --radius-card: 28px;
+  --radius-btn: 9999px;
+  --radius-input: 18px;
+
+  --shadow-glass: 0 20px 60px -20px rgba(20, 35, 80, 0.18), 0 4px 12px -4px rgba(20, 35, 80, 0.08);
+  --shadow-glass-hover: 0 28px 80px -20px rgba(20, 35, 80, 0.28), 0 6px 16px -4px rgba(20, 35, 80, 0.12);
+
+  --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================================================
+ * Base
+ * ============================================================================ */
+html {
+  scroll-behavior: smooth;
+  /* Offset anchor jumps so the target heading lands below the sticky nav pill +
+     announcement row (Nav is `sticky top-5`, ~125px tall with the announcement). */
+  scroll-padding-top: 8rem;
+}
+
+body {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  background: linear-gradient(180deg, var(--color-bg-start) 0%, var(--color-bg-mid) 35%, var(--color-bg-end) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.011em;
+  overflow-x: hidden;
+}
+
+/* ============================================================================
+ * Drifting blobs background
+ * ============================================================================ */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%      { transform: translate(60px, -40px) scale(1.08); }
+  50%      { transform: translate(-30px, 50px) scale(0.95); }
+  75%      { transform: translate(40px, 30px) scale(1.05); }
+}
+
+/* ============================================================================
+ * Map-pin pulse (decorative marker over the footer map — ported from index.html)
+ * ============================================================================ */
+@keyframes pulse-pin {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 20px -6px rgba(36, 21, 194, 0.6), 0 0 0 0 rgba(36, 21, 194, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px -6px rgba(36, 21, 194, 0.6), 0 0 0 16px rgba(36, 21, 194, 0);
+  }
+}
+
+/* ============================================================================
+ * Mount reveal — CSS entrance for always-visible content (e.g. the /links card).
+ * Unlike the framer-motion <Reveal>, the element's resting opacity is 1, so it is
+ * visible WITHOUT JS (progressive enhancement) — the animation only fades it in,
+ * and restarts cleanly on a client-side (soft) navigation re-mount. The global
+ * prefers-reduced-motion block below neutralises the animation.
+ * ============================================================================ */
+@keyframes ted-reveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.ted-reveal {
+  animation: ted-reveal 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ============================================================================
+ * Glass surface utility
+ * Tailwind v4 doesn't yet have first-class util composition — define a class.
+ * ============================================================================ */
+.glass {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-glass);
+  position: relative;
+}
+
+.glass-strong {
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-glass);
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ============================================================================
+ * Reduced motion — kill the drifting blobs, map-pin pulse, smooth scroll and
+ * transition/animation flourishes for users who ask for less motion. The
+ * framer-motion driven reveals/carousel are additionally gated in JS via
+ * useReducedMotion().
+ * ============================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

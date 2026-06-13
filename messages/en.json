@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "directions": "Programs",
+    "whyUs": "Why us",
+    "founder": "Founder",
+    "reviews": "Reviews",
+    "contact": "Contact",
+    "cta": "Sign up",
+    "menu": "Menu",
+    "toTop": "Back to top"
+  },
+  "brand": "TED Academy",
+  "sections": {
+    "courses": {
+      "eyebrow": "Programs",
+      "heading": "From grade 1 to university entry",
+      "subheading": "Local and international programmes: National Curriculum, IB, IGCSE, Cambridge. In-person in Baku and online for students abroad."
+    },
+    "whyUs": {
+      "eyebrow": "Why TED Academy"
+    },
+    "founder": {
+      "eyebrow": "Founder",
+      "heading": "The person behind TED Academy"
+    },
+    "reviews": {
+      "eyebrow": "Parent reviews",
+      "heading": "What our families say",
+      "prev": "Previous review",
+      "next": "Next review",
+      "dot": "Review {n}"
+    }
+  },
+  "form": {
+    "title": "Trial lesson",
+    "heading": "Leave a request — we'll call back within 15 minutes",
+    "subheading": "Your first trial lesson is free. We will pick the right teacher and a convenient time.",
+    "fields": {
+      "name": "Student or parent's name",
+      "namePlaceholder": "e.g. Anna",
+      "phone": "Phone",
+      "phonePlaceholder": "+994 __ ___ __ __",
+      "course": "Program",
+      "coursePlaceholder": "Pick a program",
+      "courseNotSure": "Not sure yet",
+      "time": "Best time to call",
+      "timePlaceholder": "Pick a time"
+    },
+    "timeSlots": {
+      "asap": "Within the next hour",
+      "morning": "10:00 – 13:00",
+      "afternoon": "13:00 – 17:00",
+      "evening": "17:00 – 20:00",
+      "weekend": "On weekends"
+    },
+    "submit": "Send request",
+    "submitting": "Sending…",
+    "success": "Thank you! We'll be in touch shortly.",
+    "error": "Could not submit. Please try again.",
+    "errorValidation": "Please enter your name and phone",
+    "consent": "By clicking the button you agree to the processing of personal data",
+    "honeypotLabel": "Leave this field empty"
+  },
+  "footer": {
+    "addressHeading": "Address",
+    "contactsHeading": "Contacts",
+    "mapHeading": "Find us",
+    "copyright": "© 2026 TED Academy. All rights reserved.",
+    "tagline": "A modern educational centre in Baku. Tuition in Azerbaijani, Russian and English."
+  },
+  "language": {
+    "label": "Language",
+    "ru": "Русский",
+    "en": "English",
+    "az": "Azərbaycan"
+  },
+  "links": {
+    "eyebrow": "Contacts",
+    "title": "Get in touch",
+    "subtitle": "Pick the channel that suits you best",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "youtube": "YouTube",
+    "phone": "Call us",
+    "email": "Email us"
+  },
+  "errors": {
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "You may have followed an outdated link. Head back to the home page.",
+    "back": "To home",
+    "loadFailedBody": "Couldn't load the page. Please try again.",
+    "retry": "Retry"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "directions": "İstiqamətlər",
+    "whyUs": "Niyə biz",
+    "founder": "Banı",
+    "reviews": "Rəylər",
+    "contact": "Əlaqə",
+    "cta": "Qeydiyyat",
+    "menu": "Menyu",
+    "toTop": "Yuxarı"
+  },
+  "brand": "TED Academy",
+  "sections": {
+    "courses": {
+      "eyebrow": "İstiqamətlər",
+      "heading": "1-ci sinifdən universitetə qədər",
+      "subheading": "Yerli və beynəlxalq proqramlar: National Curriculum, IB, IGCSE, Cambridge. Bakıda yerində və xaricdə onlayn."
+    },
+    "whyUs": {
+      "eyebrow": "Niyə TED Academy"
+    },
+    "founder": {
+      "eyebrow": "Banı",
+      "heading": "TED Academy-ni yaradan insan"
+    },
+    "reviews": {
+      "eyebrow": "Valideyn rəyləri",
+      "heading": "Bizimlə olanlar nə deyir",
+      "prev": "Əvvəlki rəy",
+      "next": "Növbəti rəy",
+      "dot": "Rəy {n}"
+    }
+  },
+  "form": {
+    "title": "Sınaq dərsi",
+    "heading": "Müraciət göndərin — 15 dəqiqə ərzində zəng edək",
+    "subheading": "İlk sınaq dərsi pulsuzdur. Müəllim və uyğun vaxtı seçəcəyik.",
+    "fields": {
+      "name": "Şagird və ya valideynin adı",
+      "namePlaceholder": "məs. Ayşə",
+      "phone": "Telefon",
+      "phonePlaceholder": "+994 __ ___ __ __",
+      "course": "İstiqamət",
+      "coursePlaceholder": "İstiqamət seçin",
+      "courseNotSure": "Hələ qərarsızam",
+      "time": "Zəng üçün uyğun vaxt",
+      "timePlaceholder": "Vaxt seçin"
+    },
+    "timeSlots": {
+      "asap": "Növbəti saat ərzində",
+      "morning": "10:00 – 13:00",
+      "afternoon": "13:00 – 17:00",
+      "evening": "17:00 – 20:00",
+      "weekend": "Həftəsonu"
+    },
+    "submit": "Göndər",
+    "submitting": "Göndərilir…",
+    "success": "Təşəkkürlər! Sizə yaxınlarda zəng edəcəyik.",
+    "error": "Göndərmək mümkün olmadı. Yenidən cəhd edin.",
+    "errorValidation": "Ad və telefonu daxil edin",
+    "consent": "Düyməni klikləməklə şəxsi məlumatların emalına razılıq verirsiniz",
+    "honeypotLabel": "Bu sahəni boş saxlayın"
+  },
+  "footer": {
+    "addressHeading": "Ünvan",
+    "contactsHeading": "Əlaqə",
+    "mapHeading": "Bizi necə tapmaq olar",
+    "copyright": "© 2026 TED Academy. Bütün hüquqlar qorunur.",
+    "tagline": "Bakıda müasir təhsil mərkəzi. Tədris Azərbaycan, rus və ingilis dillərində."
+  },
+  "language": {
+    "label": "Dil",
+    "ru": "Русский",
+    "en": "English",
+    "az": "Azərbaycan"
+  },
+  "links": {
+    "eyebrow": "Əlaqə",
+    "title": "Bizimlə əlaqə",
+    "subtitle": "Sizə uyğun əlaqə üsulunu seçin",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "youtube": "YouTube",
+    "phone": "Zəng edin",
+    "email": "E-poçt yazın"
+  },
+  "errors": {
+    "notFoundTitle": "Səhifə tapılmadı",
+    "notFoundBody": "Köhnəlmiş link ola bilər. Ana səhifəyə qayıdın.",
+    "back": "Ana səhifə",
+    "loadFailedBody": "Səhifə yüklənmədi. Yenidən cəhd edin.",
+    "retry": "Yenidən"
+  }
+}
