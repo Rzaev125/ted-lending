@@ -8,10 +8,12 @@ import {
   Languages,
   LineChart,
   Route,
+  Users,
   type LucideIcon,
 } from 'lucide-react';
 
 import { Reveal } from '@/components/ui/Reveal';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import type { WhyUsContent } from '@/lib/content';
 import { resolveLocalized } from '@/lib/localized';
 
@@ -22,6 +24,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   'heart-handshake': HeartHandshake,
   'book-marked': BookMarked,
   home: Home,
+  users: Users,
   'graduation-cap': GraduationCap,
   languages: Languages,
 };
@@ -32,7 +35,7 @@ const TONE_RAMP = [
   'text-accent-mint',
   'text-primary-2',
   'text-accent-amber',
-  'text-[#7A1FC8]',
+  'text-accent-violet',
 ];
 
 export async function WhyUs({ whyUs, locale }: { whyUs: WhyUsContent; locale: string }) {
@@ -40,18 +43,12 @@ export async function WhyUs({ whyUs, locale }: { whyUs: WhyUsContent; locale: st
   return (
     <section id="why" className="px-5 py-16 sm:px-8 sm:py-24 md:py-30">
       <div className="container mx-auto max-w-[1240px]">
-        <Reveal className="text-center">
-          <div className="mb-3.5 text-xs font-semibold tracking-[0.18em] text-primary uppercase">
-            {t('eyebrow')}
-          </div>
-          <h2 className="mb-4 font-extrabold leading-[1.05] tracking-[-0.03em] text-balance text-[clamp(30px,4vw,56px)] text-ink">
-            {resolveLocalized(whyUs.title, locale)}
-          </h2>
-          {whyUs.subtitle && (
-            <p className="mx-auto mb-10 max-w-[620px] text-[18px] leading-[1.55] text-ink-2 sm:mb-14">
-              {resolveLocalized(whyUs.subtitle, locale)}
-            </p>
-          )}
+        <Reveal className="mb-10 text-center sm:mb-14">
+          <SectionHeading
+            eyebrow={t('eyebrow')}
+            heading={resolveLocalized(whyUs.title, locale)}
+            headingClassName=""
+          />
         </Reveal>
 
         <div className="grid grid-cols-1 gap-5.5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
@@ -75,6 +72,16 @@ export async function WhyUs({ whyUs, locale }: { whyUs: WhyUsContent; locale: st
             );
           })}
         </div>
+
+        {whyUs.subtitle && (
+          <Reveal className="mt-12 sm:mt-16">
+            <div className="mx-auto max-w-[860px] rounded-[28px] border-2 border-primary/25 bg-white/55 px-8 py-8 text-center shadow-glass backdrop-blur-md sm:px-12 sm:py-10">
+              <p className="font-extrabold leading-[1.2] tracking-[-0.02em] text-balance text-[clamp(20px,2.6vw,30px)] text-ink">
+                {resolveLocalized(whyUs.subtitle, locale)}
+              </p>
+            </div>
+          </Reveal>
+        )}
       </div>
     </section>
   );

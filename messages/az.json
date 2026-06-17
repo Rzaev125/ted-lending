@@ -1,19 +1,20 @@
 {
   "nav": {
-    "directions": "İstiqamətlər",
+    "directions": "Haqqımızda",
     "whyUs": "Niyə biz",
     "founder": "Banı",
     "reviews": "Rəylər",
     "contact": "Əlaqə",
-    "cta": "Qeydiyyat",
+    "cta": "Bizim şagird ol",
     "menu": "Menyu",
-    "toTop": "Yuxarı"
+    "toTop": "Yuxarı",
+    "skip": "Məzmuna keç"
   },
   "brand": "TED Academy",
   "sections": {
     "courses": {
-      "eyebrow": "İstiqamətlər",
-      "heading": "1-ci sinifdən universitetə qədər",
+      "eyebrow": "Haqqımızda",
+      "heading": "Bütün yolu bizimlə birlikdə keç!",
       "subheading": "Yerli və beynəlxalq proqramlar: National Curriculum, IB, IGCSE, Cambridge. Bakıda yerində və xaricdə onlayn."
     },
     "whyUs": {
@@ -33,8 +34,8 @@
   },
   "form": {
     "title": "Sınaq dərsi",
-    "heading": "Müraciət göndərin — 15 dəqiqə ərzində zəng edək",
-    "subheading": "İlk sınaq dərsi pulsuzdur. Müəllim və uyğun vaxtı seçəcəyik.",
+    "heading": "Müraciət göndərin, ən qısa zamanda zəng edək",
+    "subheading": "Konsultasiya pulsuzdur. Müəllim və uyğun vaxtı seçəcəyik.",
     "fields": {
       "name": "Şagird və ya valideynin adı",
       "namePlaceholder": "məs. Ayşə",
@@ -67,6 +68,10 @@
     "mapHeading": "Bizi necə tapmaq olar",
     "copyright": "© 2026 TED Academy. Bütün hüquqlar qorunur.",
     "tagline": "Bakıda müasir təhsil mərkəzi. Tədris Azərbaycan, rus və ingilis dillərində."
+  },
+  "cta": {
+    "call": "Bizə zəng edin",
+    "write": "Bizə yazın"
   },
   "language": {
     "label": "Dil",

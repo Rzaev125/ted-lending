@@ -3,9 +3,10 @@
 import { animate, motion, useMotionValue, useReducedMotion, type PanInfo } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { Reveal } from '@/components/ui/Reveal';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import { safeHex } from '@/lib/color';
 import type { LandingTestimonial } from '@/lib/content';
 import { resolveLocalized } from '@/lib/localized';
@@ -27,7 +28,16 @@ export function Testimonials({
   // autoplay never advances out from under someone reading or interacting.
   const [paused, setPaused] = useState(false);
   const [dragging, setDragging] = useState(false);
-  const total = testimonials.length;
+  // Defensive: hide archived entries and enforce admin ordering (order_index)
+  // even if the backend returns an unsorted/unfiltered list.
+  const items = useMemo(
+    () =>
+      testimonials
+        .filter((item) => !item.archived_at)
+        .sort((a, b) => a.order_index - b.order_index),
+    [testimonials],
+  );
+  const total = items.length;
 
   // The strip is positioned in *pixels* (not %) so the drag gesture and the
   // programmatic slide animation share one unit — mixing px-drag with a
@@ -96,21 +106,25 @@ export function Testimonials({
     <section id="reviews" className="px-5 py-16 sm:px-8 sm:py-24 md:py-30">
       <div className="container mx-auto max-w-[1240px]">
         <Reveal className="text-center">
-          <div className="mb-3.5 text-xs font-semibold tracking-[0.18em] text-primary uppercase">
-            {t('eyebrow')}
-          </div>
-          <h2 className="mb-10 font-extrabold leading-[1.05] tracking-[-0.03em] text-balance text-[clamp(30px,4vw,56px)] text-ink sm:mb-14">
-            {t('heading')}
-          </h2>
+          <SectionHeading
+            eyebrow={t('eyebrow')}
+            heading={t('heading')}
+            headingClassName="mb-10 sm:mb-14"
+          />
         </Reveal>
 
         <Reveal>
           <div
+            role="region"
+            aria-label={t('eyebrow')}
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
             onFocusCapture={() => setPaused(true)}
             onBlurCapture={() => setPaused(false)}
           >
+          <div aria-live="polite" className="sr-only">
+            {items[idx] ? `${t('dot', { n: idx + 1 })}: ${items[idx].author_name}` : ''}
+          </div>
           <div className="overflow-hidden rounded-[28px] glass p-1">
             <motion.div
               ref={stripRef}
@@ -126,7 +140,7 @@ export function Testimonials({
               onDragStart={() => setDragging(true)}
               onDragEnd={handleDragEnd}
             >
-              {testimonials.map((item) => (
+              {items.map((item) => (
                 <div
                   key={item.id}
                   className="flex flex-[0_0_100%] flex-col gap-6 p-6 sm:p-12 md:p-14"
@@ -161,31 +175,35 @@ export function Testimonials({
           <div className="mt-8 flex items-center justify-center gap-4">
             <button
               type="button"
-              className="glass-strong grid size-11 cursor-pointer place-items-center rounded-full text-ink transition-transform hover:scale-105 sm:size-12"
+              className="focus-ring glass-strong grid size-11 cursor-pointer place-items-center rounded-full text-ink transition-transform hover:scale-105 sm:size-12"
               onClick={() => go(idx - 1)}
               aria-label={t('prev')}
             >
               <ArrowLeft className="size-5" />
             </button>
-            <div className="flex gap-2">
-              {testimonials.map((_, n) => (
+            <div className="flex items-center justify-center gap-1">
+              {items.map((_, n) => (
                 <button
                   key={n}
                   type="button"
                   onClick={() => go(n)}
                   aria-label={t('dot', { n: n + 1 })}
                   aria-current={n === idx ? 'true' : undefined}
-                  className={
-                    n === idx
-                      ? 'h-2 w-7 cursor-pointer rounded bg-ink p-0 transition-all'
-                      : 'size-2 cursor-pointer rounded-full border-0 bg-ink/20 p-0 transition-all'
-                  }
-                />
+                  className="focus-ring grid size-7 cursor-pointer place-items-center rounded-full"
+                >
+                  <span
+                    className={
+                      n === idx
+                        ? 'h-2 w-7 rounded bg-ink transition-all'
+                        : 'size-2 rounded-full bg-ink/20 transition-all'
+                    }
+                  />
+                </button>
               ))}
             </div>
             <button
               type="button"
-              className="glass-strong grid size-11 cursor-pointer place-items-center rounded-full text-ink transition-transform hover:scale-105 sm:size-12"
+              className="focus-ring glass-strong grid size-11 cursor-pointer place-items-center rounded-full text-ink transition-transform hover:scale-105 sm:size-12"
               onClick={() => go(idx + 1)}
               aria-label={t('next')}
             >

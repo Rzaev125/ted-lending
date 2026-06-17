@@ -34,7 +34,7 @@ export function LanguageSwitcher() {
       <select
         value={currentLocale}
         onChange={handleChange}
-        className="cursor-pointer rounded-full bg-transparent py-1 pr-1 pl-1 text-sm font-medium text-ink-2 transition-colors outline-none hover:text-primary focus-visible:text-primary"
+        className="focus-ring cursor-pointer rounded-full bg-transparent py-1 pr-1 pl-1 text-sm font-medium text-ink-2 transition-colors hover:text-primary focus-visible:text-primary"
       >
         {locales.map((locale) => (
           <option key={locale} value={locale}>

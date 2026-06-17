@@ -89,8 +89,8 @@ export interface LandingCourse {
   id: string;
   order_index: number;
   icon_key: LandingCourseIcon;
-  title: Record<string, string>;
-  body: Record<string, string>;
+  title: LocalizedText;
+  body: LocalizedText;
   link_url: string | null;
   archived_at: string | null;
 }
@@ -98,16 +98,16 @@ export interface LandingCourse {
 export interface LandingSubjectPill {
   id: string;
   order_index: number;
-  label: Record<string, string>;
+  label: LocalizedText;
   color_hex: string;
 }
 
 export interface LandingTestimonial {
   id: string;
   order_index: number;
-  quote: Record<string, string>;
+  quote: LocalizedText;
   author_name: string;
-  author_role: Record<string, string>;
+  author_role: LocalizedText;
   avatar_initial: string;
   avatar_gradient_from: string;
   avatar_gradient_to: string;

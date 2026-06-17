@@ -61,7 +61,7 @@ export function NavLinks({ links }: { links: NavLink[] }) {
             key={link.href}
             href={link.href}
             aria-current={isActive ? 'true' : undefined}
-            className={`text-sm font-medium transition-colors hover:text-primary ${
+            className={`focus-ring text-sm font-medium transition-colors hover:text-primary ${
               isActive ? 'font-semibold text-primary' : 'text-ink-2'
             }`}
           >

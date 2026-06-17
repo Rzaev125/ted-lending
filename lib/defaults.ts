@@ -40,31 +40,27 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
           'universitetlərinə qəbula qədər.',
       },
       cta_primary_label: {
-        ru: 'Записаться на пробное занятие',
-        en: 'Book a trial lesson',
-        az: 'Sınaq dərsinə yazıl',
+        ru: 'Позвоните нам',
+        en: 'Call us',
+        az: 'Bizə zəng edin',
       },
       cta_secondary_label: {
-        ru: 'Посмотреть направления',
-        en: 'Explore programs',
-        az: 'İstiqamətlərə bax',
+        ru: 'Напишите нам',
+        en: 'Write to us',
+        az: 'Bizə yazın',
       },
       stats: [
         {
-          value: '3',
-          label: { ru: 'языка преподавания', en: 'languages of instruction', az: 'tədris dili' },
-        },
-        {
-          value: '230+',
-          label: { ru: 'учеников в год', en: 'students per year', az: 'illik şagird' },
-        },
-        {
-          value: '25',
+          value: '27',
           label: {
             ru: 'лет опыта основателя',
             en: "years of founder's experience",
             az: 'il təsisçi təcrübəsi',
           },
+        },
+        {
+          value: '2832+',
+          label: { ru: 'учеников', en: 'students', az: 'şagird' },
         },
         {
           value: '20+',
@@ -80,9 +76,9 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
         az: 'Bizi seçməyin altı səbəbi',
       },
       subtitle: {
-        ru: 'Нас советуют благодаря подходу к детям и высоким результатам.',
-        en: "We're recommended for our approach to children and strong results.",
-        az: 'Bizi uşaqlara yanaşmamıza və yüksək nəticələrə görə tövsiyə edirlər.',
+        ru: 'Нас выбирают благодаря нашему подходу к детям и высоким результатам!',
+        en: 'Families choose us for our approach to children and our strong results!',
+        az: 'Bizi uşaqlara yanaşmamıza və yüksək nəticələrimizə görə seçirlər!',
       },
       cards: [
         {
@@ -155,18 +151,24 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
           },
         },
         {
-          icon_key: 'book-marked',
-          title: { ru: 'Авторские материалы', en: 'Original materials', az: 'Müəllif materialları' },
+          icon_key: 'users',
+          title: {
+            ru: 'Залог нашего успеха',
+            en: 'The key to our success',
+            az: 'Uğurumuzun təminatı',
+          },
           body: {
             ru:
-              'Электронные учебники по SAT, YÖS и Curriculum/DİM на трёх языках, ' +
-              'адаптированные под простое восприятие. Сборники реальных задач DİM.',
+              'Слаженная и продуктивная работа всей команды, уважительное ' +
+              'отношение к каждому ученику и помощь в раскрытии потенциала каждого ' +
+              'как личности.',
             en:
-              'E-textbooks for SAT, YÖS and Curriculum/DİM in three languages, ' +
-              'adapted for easy understanding. Collections of real DİM problems.',
+              'The coordinated, productive work of the whole team, a respectful ' +
+              'attitude to every student and help in unlocking each child’s ' +
+              'potential as a personality.',
             az:
-              'SAT, YÖS və Curriculum/DİM üzrə üç dildə, asan qavranılması üçün ' +
-              'uyğunlaşdırılmış elektron dərsliklər. Real DİM tapşırıqları toplusu.',
+              'Bütün komandanın əlaqəli və məhsuldar işi, hər şagirdə hörmətlə ' +
+              'yanaşma və hər kəsin şəxsiyyət kimi potensialını açmağa kömək.',
           },
         },
         {
@@ -190,9 +192,9 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       eyebrow: { ru: 'Founder & CEO', en: 'Founder & CEO', az: 'Təsisçi və CEO' },
       name: 'Fuad Ismayilov',
       title: {
-        ru: 'Выпускник Мехмата БГУ · 25 лет преподавания математики',
-        en: "Graduate of BSU's Faculty of Mechanics and Mathematics · 25 years teaching mathematics",
-        az: 'BDU-nun Mexanika-Riyaziyyat fakültəsinin məzunu · 25 illik riyaziyyat təcrübəsi',
+        ru: 'Выпускник БГУ, факультет математики · 27 лет преподавания математики',
+        en: 'Graduate of Baku State University, Faculty of Mathematics · 27 years teaching mathematics',
+        az: 'BDU-nun Riyaziyyat fakültəsinin məzunu · 27 illik riyaziyyat təcrübəsi',
       },
       badge_label: {
         ru: 'Автор 20+ учебников',
@@ -202,20 +204,20 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       bio_paragraphs: [
         {
           ru:
-            'Окончил Бакинский Государственный Университет по факультету «Механической ' +
-            'математики» и магистратуру по высшей методике преподавания с красным ' +
-            'дипломом. Работал в государственных и частных школах, вёл индивидуальную ' +
-            'подготовку по Curriculum / DİM, SAT и IB.',
+            'Окончил Бакинский Государственный Университет, факультет «Математики», ' +
+            'и магистратуру по методике преподавания математики с красным дипломом. ' +
+            'Работал в государственных и частных школах, вёл индивидуальную ' +
+            'подготовку по Curriculum / DİM, SAT, IB, IGCSE и Calculus.',
           en:
-            "Graduated from Baku State University's Faculty of Mechanics and " +
-            'Mathematics and completed a master’s degree in advanced teaching ' +
-            'methodology with honours. He worked in public and private schools and ' +
-            'provided individual preparation for Curriculum / DİM, SAT and IB.',
+            'Graduated from Baku State University, Faculty of Mathematics, and ' +
+            'completed a master’s degree in mathematics teaching methodology with ' +
+            'honours. He worked in public and private schools and provided ' +
+            'individual preparation for Curriculum / DİM, SAT, IB, IGCSE and Calculus.',
           az:
-            'Bakı Dövlət Universitetinin «Mexanika-riyaziyyat» fakültəsini və ali ' +
-            'tədris metodikası üzrə magistraturanı fərqlənmə diplomu ilə bitirib. ' +
-            'Dövlət və özəl məktəblərdə çalışıb, Curriculum / DİM, SAT və IB üzrə ' +
-            'fərdi hazırlıq aparıb.',
+            'Bakı Dövlət Universitetinin «Riyaziyyat» fakültəsini və riyaziyyatın ' +
+            'tədrisi metodikası üzrə magistraturanı fərqlənmə diplomu ilə bitirib. ' +
+            'Dövlət və özəl məktəblərdə çalışıb, Curriculum / DİM, SAT, IB, IGCSE və ' +
+            'Calculus üzrə fərdi hazırlıq aparıb.',
         },
         {
           ru:
@@ -239,9 +241,9 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       },
     },
     contacts: {
-      phone: '+994 (50) 123-45-67',
-      email: 'info@tedacademy.az',
-      whatsapp_url: 'https://wa.me/994501234567',
+      phone: '+994 55 244 69 69',
+      email: 'office@ted.edu.az',
+      whatsapp_url: 'https://wa.me/994552446969',
       telegram_url: 'https://t.me/tedacademy',
       address: { ru: 'г. Баку, Азербайджан', en: 'Baku, Azerbaijan', az: 'Bakı, Azərbaycan' },
       hours: [
@@ -308,14 +310,14 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       title: { ru: 'Языки', en: 'Languages', az: 'Dillər' },
       body: {
         ru:
-          'Английский по уровням A1–C2, IELTS, TOEFL, Duolingo. Русский, ' +
-          'азербайджанский, литература. Сертифицированные преподаватели.',
+          'Английский по уровням A1–C2, американский английский, IELTS, TOEFL, ' +
+          'Duolingo. Русский, азербайджанский, литература. Сертифицированные преподаватели.',
         en:
-          'English by levels A1–C2, IELTS, TOEFL, Duolingo. Russian, Azerbaijani, ' +
-          'literature. Certified teachers.',
+          'English by levels A1–C2, American English, IELTS, TOEFL, Duolingo. ' +
+          'Russian, Azerbaijani, literature. Certified teachers.',
         az:
-          'A1–C2 səviyyələri üzrə ingilis dili, IELTS, TOEFL, Duolingo. Rus, ' +
-          'Azərbaycan dili, ədəbiyyat. Sertifikatlı müəllimlər.',
+          'A1–C2 səviyyələri üzrə ingilis dili, Amerikan ingiliscəsi, IELTS, TOEFL, ' +
+          'Duolingo. Rus, Azərbaycan dili, ədəbiyyat. Sertifikatlı müəllimlər.',
       },
       link_url: null,
       archived_at: null,
@@ -327,15 +329,17 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       title: { ru: 'Экзамены DİM и SAT', en: 'DİM & SAT exams', az: 'DİM və SAT imtahanları' },
       body: {
         ru:
-          'Подготовка к классным ИСО/БСО (1–8), выпускным и вступительным испытаниям ' +
-          'DİM (9–11), SAT Math & Verbal. Реальные варианты приёмной комиссии.',
+          'Подготовка к школьной аттестации (ИСО/БСО) и экзаменам для 8, 10 и 11 ' +
+          'классов, ЛСО/6СО для 7–8 классов, выпускным и вступительным DİM (9–11), ' +
+          'SAT Math & Verbal. Реальные варианты приёмной комиссии.',
         en:
-          'Preparation for in-class summative assessments (KSQ/BSQ, grades 1–8), DİM ' +
-          'graduation and entrance exams (9–11), SAT Math & Verbal. Real ' +
-          'admission-board papers.',
+          'Preparation for school attestation (summative assessments) and the exams ' +
+          'for grades 8, 10 and 11, LSO/6SO for grades 7–8, DİM graduation and ' +
+          'entrance exams (9–11), SAT Math & Verbal. Real admission-board papers.',
         az:
-          'Sinif KSQ/BSQ (1–8), DİM buraxılış və qəbul imtahanları (9–11), SAT Math & ' +
-          'Verbal üzrə hazırlıq. Real qəbul komissiyası variantları.',
+          'Məktəb attestasiyası (KSQ/BSQ) və 8, 10, 11-ci siniflər üçün imtahanlar, ' +
+          '7–8-ci siniflər üçün LSO/6SO, DİM buraxılış və qəbul imtahanları (9–11), ' +
+          'SAT Math & Verbal üzrə hazırlıq. Real qəbul komissiyası variantları.',
       },
       link_url: null,
       archived_at: null,
@@ -347,17 +351,17 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       title: { ru: 'IT и Study Abroad', en: 'IT & Study Abroad', az: 'IT və Study Abroad' },
       body: {
         ru:
-          'Full-stack, Front-/Back-end, Cybersecurity, UI/UX, Data Analytics, ' +
-          'ML-engineering. Профессиональный подбор и сопровождение при поступлении ' +
-          'в вузы мира.',
+          'Full-stack, Frontend, Backend, UI/UX, Data Analytics, ML-engineering. ' +
+          'Поступление в вузы СНГ, России и топовые университеты мира — ' +
+          'профессиональный подбор и сопровождение.',
         en:
-          'Full-stack, Front-/Back-end, Cybersecurity, UI/UX, Data Analytics, ML ' +
-          'engineering. Professional selection and guidance for admission to ' +
-          'universities worldwide.',
+          'Full-stack, Frontend, Backend, UI/UX, Data Analytics, ML engineering. ' +
+          'Admission to universities in the CIS, Russia and the world’s top ' +
+          'universities — professional selection and guidance.',
         az:
-          'Full-stack, Front-/Back-end, Cybersecurity, UI/UX, Data Analytics, ' +
-          'ML-engineering. Dünya universitetlərinə qəbul üçün peşəkar seçim və ' +
-          'müşayiət.',
+          'Full-stack, Frontend, Backend, UI/UX, Data Analytics, ML-engineering. ' +
+          'MDB, Rusiya və dünyanın ən yaxşı universitetlərinə qəbul — peşəkar seçim ' +
+          'və müşayiət.',
       },
       link_url: null,
       archived_at: null,

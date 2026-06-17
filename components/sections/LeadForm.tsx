@@ -5,12 +5,26 @@ import { useLocale, useTranslations } from 'next-intl';
 import { type FormEvent, useState } from 'react';
 
 import { Reveal } from '@/components/ui/Reveal';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import type { LandingCourse } from '@/lib/content';
 import { resolveLocalized } from '@/lib/localized';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error' | 'invalid';
 
 const TIME_SLOT_KEYS = ['asap', 'morning', 'afternoon', 'evening', 'weekend'] as const;
+
+/**
+ * Source attribution for the CRM funnel (ТЗ §10): read the campaign source from
+ * the URL (``?utm_source=…`` / ``?source=…`` / ``?ref=…``) so leads from
+ * Instagram / TikTok / Facebook ads are tagged; fall back to a plain ``landing``.
+ * Read at submit time (client-only) so there is no SSR ``window`` access.
+ */
+function readLeadSource(): string {
+  if (typeof window === 'undefined') return 'landing';
+  const params = new URLSearchParams(window.location.search);
+  const utm = params.get('utm_source') ?? params.get('source') ?? params.get('ref');
+  return utm ? utm.trim().slice(0, 64) : 'landing';
+}
 
 export function LeadForm({ courses }: { courses: LandingCourse[] }) {
   const locale = useLocale();
@@ -46,7 +60,7 @@ export function LeadForm({ courses }: { courses: LandingCourse[] }) {
           phone: phone.trim(),
           course: course.trim() || undefined,
           preferred_time_slot: timeSlot.trim() || undefined,
-          source: 'landing',
+          source: readLeadSource(),
           website,
         }),
       });
@@ -70,15 +84,13 @@ export function LeadForm({ courses }: { courses: LandingCourse[] }) {
         <Reveal>
           <div className="glass mx-auto max-w-[720px] p-6 text-left sm:p-14">
             <div className="text-center">
-              <div className="mb-3.5 text-xs font-semibold tracking-[0.18em] text-primary uppercase">
-                {t('title')}
-              </div>
-              <h2 className="mb-3 font-extrabold leading-[1.05] tracking-[-0.03em] text-balance text-[clamp(30px,4vw,56px)] text-ink">
-                {t('heading')}
-              </h2>
-              <p className="mx-auto mb-7 max-w-[620px] text-[18px] leading-[1.55] text-ink-2 sm:mb-10">
-                {t('subheading')}
-              </p>
+              <SectionHeading
+                eyebrow={t('title')}
+                heading={t('heading')}
+                subheading={t('subheading')}
+                headingClassName="mb-3"
+                subheadingClassName="mb-7 sm:mb-10"
+              />
             </div>
 
             <form onSubmit={handleSubmit} noValidate>
@@ -93,9 +105,11 @@ export function LeadForm({ courses }: { courses: LandingCourse[] }) {
                       if (status === 'invalid') setStatus('idle');
                     }}
                     placeholder={t('fields.namePlaceholder')}
+                    id="lead-name"
                     required
                     aria-required
                     aria-invalid={errors.name || undefined}
+                    aria-describedby={errors.name ? 'lead-error' : undefined}
                     className={`rounded-[18px] border bg-white/55 px-4.5 py-3.5 text-[15px] outline-none backdrop-blur-md transition-all focus:bg-white/85 sm:py-4 ${
                       errors.name
                         ? 'border-accent-pink/70 focus:border-accent-pink focus:shadow-[0_0_0_4px_rgba(166,1,169,0.15)]'
@@ -113,9 +127,11 @@ export function LeadForm({ courses }: { courses: LandingCourse[] }) {
                       if (status === 'invalid') setStatus('idle');
                     }}
                     placeholder={t('fields.phonePlaceholder')}
+                    id="lead-phone"
                     required
                     aria-required
                     aria-invalid={errors.phone || undefined}
+                    aria-describedby={errors.phone ? 'lead-error' : undefined}
                     className={`rounded-[18px] border bg-white/55 px-4.5 py-3.5 text-[15px] outline-none backdrop-blur-md transition-all focus:bg-white/85 sm:py-4 ${
                       errors.phone
                         ? 'border-accent-pink/70 focus:border-accent-pink focus:shadow-[0_0_0_4px_rgba(166,1,169,0.15)]'
@@ -195,7 +211,7 @@ export function LeadForm({ courses }: { courses: LandingCourse[] }) {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-ink px-7 py-4 text-[16px] font-semibold text-white shadow-[0_14px_30px_-10px_rgba(12,20,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-primary disabled:opacity-60 sm:py-5"
+                className="focus-ring inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-ink px-7 py-4 text-[16px] font-semibold text-white shadow-[0_14px_30px_-10px_rgba(12,20,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-primary disabled:opacity-60 sm:py-5"
               >
                 {status === 'submitting' ? t('submitting') : t('submit')}
                 <Send className="size-4.5" />
@@ -206,15 +222,16 @@ export function LeadForm({ courses }: { courses: LandingCourse[] }) {
               {status === 'success' && (
                 <p
                   role="status"
-                  className="mt-4 rounded-[16px] bg-[#46D4B7]/20 px-4 py-3 text-center text-[14px] font-semibold text-[#1d8a73]"
+                  className="mt-4 rounded-[16px] bg-success/20 px-4 py-3 text-center text-[14px] font-semibold text-success-strong"
                 >
                   {t('success')}
                 </p>
               )}
               {(status === 'error' || status === 'invalid') && (
                 <p
+                  id="lead-error"
                   role="alert"
-                  className="mt-4 rounded-[16px] bg-accent-pink/20 px-4 py-3 text-center text-[14px] font-semibold text-[#931089]"
+                  className="mt-4 rounded-[16px] bg-accent-pink/20 px-4 py-3 text-center text-[14px] font-semibold text-danger-strong"
                 >
                   {status === 'invalid' ? t('errorValidation') : t('error')}
                 </p>

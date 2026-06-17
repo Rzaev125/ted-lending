@@ -1,38 +1,65 @@
+import { MessageSquare, Phone } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
+import { CtaButton } from '@/components/ui/CtaButton';
 import { Reveal } from '@/components/ui/Reveal';
-import { CONTACT_LINKS } from '@/lib/links';
+import { SectionHeading } from '@/components/ui/SectionHeading';
+import type { ContactsContent } from '@/lib/content';
+import { buildContactLinks, telHref, writeHref } from '@/lib/links';
 
 /**
  * Секция контактных каналов главной страницы (перенесена со старой страницы-визитки
- * `/links`). Переиспользует статический конфиг `CONTACT_LINKS` (lib/links.ts) и i18n
- * `links`. Кнопки сохраняют фирменные градиенты каналов, но раскладываются адаптивной
- * сеткой: 1 колонка (моб.) → 2 (sm) → 3 (md) → ряд из 5 (lg+).
+ * `/links`). Телефон, e-mail и WhatsApp берутся из редактируемого слоя `contacts`
+ * (см. `lib/links.ts` → `buildContactLinks`); URL соцсетей — статика. Кнопки сохраняют
+ * фирменные градиенты каналов и раскладываются адаптивной сеткой.
+ *
+ * Сверху — сквозная пара CTA «Позвоните нам» / «Напишите нам» (ТЗ §8, дублирует
+ * кнопки hero), ведущая на `tel:` и WhatsApp/e-mail из тех же контактов.
  */
-export async function ContactChannels() {
+export async function ContactChannels({ contacts }: { contacts: ContactsContent }) {
   const t = await getTranslations('links');
+  const tCta = await getTranslations('cta');
+  const links = buildContactLinks(contacts);
+  const callHref = telHref(contacts.phone);
+  const messageHref = writeHref(contacts);
+  const messageExternal = /^https?:/.test(messageHref);
+
   return (
     <section id="contacts" className="px-5 py-16 sm:px-8 sm:py-24 md:py-30">
       <div className="container mx-auto max-w-[1240px]">
         <Reveal className="text-center">
-          <div className="mb-3.5 text-xs font-semibold tracking-[0.18em] text-primary uppercase">
-            {t('eyebrow')}
+          <SectionHeading
+            eyebrow={t('eyebrow')}
+            heading={t('title')}
+            subheading={t('subtitle')}
+            subheadingClassName="mb-9"
+          />
+        </Reveal>
+
+        <Reveal>
+          <div className="mb-12 flex flex-wrap justify-center gap-3.5 sm:mb-14">
+            <CtaButton href={callHref} variant="primary">
+              <Phone className="size-4.5" />
+              {tCta('call')}
+            </CtaButton>
+            <CtaButton
+              href={messageHref}
+              variant="glass"
+              {...(messageExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              <MessageSquare className="size-4.5" />
+              {tCta('write')}
+            </CtaButton>
           </div>
-          <h2 className="mb-4 font-extrabold leading-[1.05] tracking-[-0.03em] text-balance text-[clamp(30px,4vw,56px)] text-ink">
-            {t('title')}
-          </h2>
-          <p className="mx-auto mb-14 max-w-[620px] text-[18px] leading-[1.55] text-ink-2">
-            {t('subtitle')}
-          </p>
         </Reveal>
 
         <div className="mx-auto grid max-w-[920px] grid-cols-2 gap-4 md:grid-cols-4">
-          {CONTACT_LINKS.map(({ id, href, gradient, external, Icon }, index) => (
+          {links.map(({ id, href, gradient, external, Icon }, index) => (
             <Reveal key={id} className="h-full" delay={Math.min(index, 6) * 0.07}>
               <a
                 href={href}
                 {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="group flex h-full flex-col items-center gap-3 rounded-2xl px-5 py-6 text-center text-white shadow-[0_8px_22px_-10px_rgba(0,0,0,0.45)] transition-transform hover:-translate-y-1 active:scale-[0.99]"
+                className="focus-ring group flex h-full flex-col items-center gap-3 rounded-2xl px-5 py-6 text-center text-white shadow-[0_8px_22px_-10px_rgba(0,0,0,0.45)] transition-transform hover:-translate-y-1 active:scale-[0.99]"
                 style={{ background: gradient }}
               >
                 <span className="grid size-12 place-items-center rounded-2xl bg-white/15">

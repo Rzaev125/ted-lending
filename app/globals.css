@@ -12,7 +12,9 @@
 
   --color-ink: #0c1424;
   --color-ink-2: #3b4456;
-  --color-ink-3: #6b7588;
+  /* Nudged slightly darker than the old #6b7588 so 13px secondary text clears
+     WCAG AA (≥4.5:1) on white/glass while staying the lightest of the inks. */
+  --color-ink-3: #626b80;
 
   /* Brand axis — derived from the logo: indigo #0a0799 → magenta #a601a9.
      primary is the logo indigo lifted for UI contrast/hover; the exact #0a0799
@@ -22,6 +24,18 @@
   --color-accent-pink: #C42BB0;
   --color-accent-mint: #5A2BD8;
   --color-accent-amber: #8E18BE;
+  /* Deepest brand anchor + mid stop used in the Founder gradient. */
+  --color-primary-deep: #0a0799;
+  --color-founder-mid: #7A1FC0;
+  /* Extra brand stops used by the Courses/WhyUs icon ramps. */
+  --color-accent-violet: #7A1FC8;
+  --color-accent-indigo: #8A2BD0;
+  --color-accent-magenta: #B215A6;
+
+  /* Semantic feedback colours (form success / error, announcement dot). */
+  --color-success: #46D4B7;
+  --color-success-strong: #1d8a73;
+  --color-danger-strong: #931089;
 
   --color-glass-bg: rgba(255, 255, 255, 0.62);
   --color-glass-bg-strong: rgba(255, 255, 255, 0.78);
@@ -133,6 +147,20 @@ body {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+}
+
+/* ============================================================================
+ * Focus ring — one shared keyboard-focus indicator for interactive elements
+ * that otherwise only have hover styles. The outline follows the element's own
+ * border-radius (pills included). Transparent at rest (no layout shift / no
+ * visual change), coloured only on :focus-visible so mouse clicks stay clean.
+ * ============================================================================ */
+.focus-ring {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.focus-ring:focus-visible {
+  outline-color: var(--color-primary);
 }
 
 /* ============================================================================

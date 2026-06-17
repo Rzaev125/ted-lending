@@ -1,19 +1,20 @@
 {
   "nav": {
-    "directions": "Programs",
+    "directions": "About us",
     "whyUs": "Why us",
     "founder": "Founder",
     "reviews": "Reviews",
     "contact": "Contact",
-    "cta": "Sign up",
+    "cta": "Become our student",
     "menu": "Menu",
-    "toTop": "Back to top"
+    "toTop": "Back to top",
+    "skip": "Skip to content"
   },
   "brand": "TED Academy",
   "sections": {
     "courses": {
-      "eyebrow": "Programs",
-      "heading": "From grade 1 to university entry",
+      "eyebrow": "About us",
+      "heading": "Walk the whole path with us!",
       "subheading": "Local and international programmes: National Curriculum, IB, IGCSE, Cambridge. In-person in Baku and online for students abroad."
     },
     "whyUs": {
@@ -33,8 +34,8 @@
   },
   "form": {
     "title": "Trial lesson",
-    "heading": "Leave a request — we'll call back within 15 minutes",
-    "subheading": "Your first trial lesson is free. We will pick the right teacher and a convenient time.",
+    "heading": "Leave a request and we'll call you back shortly",
+    "subheading": "The consultation is free. We'll pick the right teacher and a convenient time.",
     "fields": {
       "name": "Student or parent's name",
       "namePlaceholder": "e.g. Anna",
@@ -67,6 +68,10 @@
     "mapHeading": "Find us",
     "copyright": "© 2026 TED Academy. All rights reserved.",
     "tagline": "A modern educational centre in Baku. Tuition in Azerbaijani, Russian and English."
+  },
+  "cta": {
+    "call": "Call us",
+    "write": "Write to us"
   },
   "language": {
     "label": "Language",

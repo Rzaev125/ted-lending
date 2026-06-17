@@ -1,15 +1,30 @@
-import { ArrowRight, BookOpen } from 'lucide-react';
+import { MessageSquare, Phone } from 'lucide-react';
 
+import { CtaButton } from '@/components/ui/CtaButton';
 import { Reveal } from '@/components/ui/Reveal';
-import type { HeroContent } from '@/lib/content';
+import type { ContactsContent, HeroContent } from '@/lib/content';
+import { telHref, writeHref } from '@/lib/links';
 import { resolveLocalized } from '@/lib/localized';
 
 /**
- * The 80vh hero block: animated eyebrow pill, two-tone display title with a
- * gradient accent on ``title_lead``, sub-paragraph, two CTAs, and the four
- * statistic tiles below.
+ * The hero block: horizontal logo, animated two-tone display title with a
+ * gradient accent on ``title_lead``, sub-paragraph, the «Позвоните нам» /
+ * «Напишите нам» CTAs (call → ``tel:``, write → WhatsApp/e-mail, both from the
+ * editable ``contacts``), and the statistic tiles below.
  */
-export function Hero({ hero, locale }: { hero: HeroContent; locale: string }) {
+export function Hero({
+  hero,
+  contacts,
+  locale,
+}: {
+  hero: HeroContent;
+  contacts: ContactsContent;
+  locale: string;
+}) {
+  const callHref = telHref(contacts.phone);
+  const messageHref = writeHref(contacts);
+  const messageExternal = /^https?:/.test(messageHref);
+
   return (
     <section className="px-5 pt-20 pb-16 sm:px-8 sm:pt-24 sm:pb-20">
       <Reveal className="mx-auto max-w-[920px] text-center">
@@ -23,20 +38,18 @@ export function Hero({ hero, locale }: { hero: HeroContent; locale: string }) {
           {resolveLocalized(hero.subtitle, locale)}
         </p>
         <div className="flex flex-wrap justify-center gap-3.5">
-          <a
-            href="#form"
-            className="inline-flex items-center gap-2.5 rounded-full bg-ink px-7 py-4 text-[15px] font-semibold text-white shadow-[0_14px_30px_-10px_rgba(12,20,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-primary hover:shadow-[0_20px_40px_-12px_rgba(36,21,194,0.5)]"
-          >
+          <CtaButton href={callHref} variant="primary">
+            <Phone className="size-4.5" />
             {resolveLocalized(hero.cta_primary_label, locale)}
-            <ArrowRight className="size-4.5" />
-          </a>
-          <a
-            href="#courses"
-            className="glass inline-flex items-center gap-2.5 rounded-full px-7 py-4 text-[15px] font-semibold text-ink transition-all hover:-translate-y-0.5"
+          </CtaButton>
+          <CtaButton
+            href={messageHref}
+            variant="glass"
+            {...(messageExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           >
-            <BookOpen className="size-4.5" />
+            <MessageSquare className="size-4.5" />
             {resolveLocalized(hero.cta_secondary_label, locale)}
-          </a>
+          </CtaButton>
         </div>
 
         {hero.stats.length > 0 && (

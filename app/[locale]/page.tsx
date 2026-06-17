@@ -119,13 +119,13 @@ export default async function HomePage({
         announcement={resolveLocalized(site.content.hero.eyebrow, locale)}
         logoUrl={site.content.meta.logo_url}
       />
-      <Hero hero={site.content.hero} locale={locale} />
+      <Hero hero={site.content.hero} contacts={site.content.contacts} locale={locale} />
       <Courses courses={site.courses} locale={locale} />
       <Subjects subjects={site.subjects} locale={locale} />
       <WhyUs whyUs={site.content.why_us} locale={locale} />
       <Founder founder={site.content.founder} locale={locale} />
       <Testimonials testimonials={site.testimonials} locale={locale} />
-      <ContactChannels />
+      <ContactChannels contacts={site.content.contacts} />
       <LeadForm courses={site.courses} />
       <Footer
         contacts={site.content.contacts}

@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { Award } from 'lucide-react';
 
 import { Reveal } from '@/components/ui/Reveal';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import type { FounderContent } from '@/lib/content';
 import { resolveLocalized } from '@/lib/localized';
 
@@ -27,12 +28,11 @@ export async function Founder({
     <section id="founder" className="px-5 py-16 sm:px-8 sm:py-24 md:py-30">
       <div className="container mx-auto max-w-[1240px]">
         <Reveal className="text-center">
-          <div className="mb-3.5 text-xs font-semibold tracking-[0.18em] text-primary uppercase">
-            {t('eyebrow')}
-          </div>
-          <h2 className="mb-8 font-extrabold leading-[1.05] tracking-[-0.03em] text-balance text-[clamp(30px,4vw,56px)] text-ink sm:mb-14">
-            {t('heading')}
-          </h2>
+          <SectionHeading
+            eyebrow={t('eyebrow')}
+            heading={t('heading')}
+            headingClassName="mb-8 sm:mb-14"
+          />
         </Reveal>
 
         <Reveal>
@@ -41,7 +41,7 @@ export async function Founder({
               className="relative grid min-h-[300px] place-items-center p-6 sm:p-10 md:min-h-[460px]"
               style={{
                 background:
-                  'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), transparent 60%), linear-gradient(135deg, #0a0799 0%, #7A1FC0 50%, #A601A9 100%)',
+                  'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), transparent 60%), linear-gradient(135deg, var(--color-primary-deep) 0%, var(--color-founder-mid) 50%, var(--color-primary-2) 100%)',
               }}
             >
               <div

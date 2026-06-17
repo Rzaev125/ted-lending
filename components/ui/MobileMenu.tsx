@@ -66,9 +66,20 @@ export function MobileMenu({
       }
     };
 
+    // Close when a pointer press lands outside the panel — but ignore the burger
+    // trigger, which has its own toggle (closing here too would instantly reopen).
+    const onPointerDown = (event: PointerEvent) => {
+      const target = event.target as Node | null;
+      if (!target) return;
+      if (panelRef.current?.contains(target) || triggerRef.current?.contains(target)) return;
+      setOpen(false);
+    };
+
     window.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onPointerDown);
     return () => {
       window.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onPointerDown);
       document.body.style.overflow = previousOverflow;
       // Return focus to the burger trigger after the panel closes.
       trigger?.focus();
@@ -84,7 +95,7 @@ export function MobileMenu({
         aria-label={menuLabel}
         aria-expanded={open}
         aria-controls="mobile-menu"
-        className="grid size-10 cursor-pointer place-items-center rounded-full text-ink transition-colors hover:text-primary"
+        className="focus-ring grid size-10 cursor-pointer place-items-center rounded-full text-ink transition-colors hover:text-primary"
       >
         {open ? <X className="size-5" /> : <Menu className="size-5" />}
       </button>
@@ -98,14 +109,14 @@ export function MobileMenu({
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
             transition={{ duration: reduce ? 0 : 0.2, ease: 'easeOut' }}
-            className="glass-strong absolute top-full right-0 left-0 mt-3 flex flex-col gap-1 rounded-[24px] p-3"
+            className="absolute top-full right-0 left-0 mt-3 flex flex-col gap-1 rounded-[24px] border border-ink/10 bg-white/95 p-3 shadow-[0_24px_60px_-15px_rgba(12,20,36,0.45)] backdrop-blur-xl"
           >
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-2xl px-4 py-3 text-[15px] font-medium text-ink-2 transition-colors hover:bg-ink/[0.04] hover:text-primary"
+                className="focus-ring rounded-2xl px-4 py-3 text-[15px] font-medium text-ink-2 transition-colors hover:bg-ink/[0.04] hover:text-primary"
               >
                 {link.label}
               </a>
@@ -113,7 +124,7 @@ export function MobileMenu({
             <a
               href={ctaHref}
               onClick={() => setOpen(false)}
-              className="mt-1 rounded-full bg-ink px-5 py-3 text-center text-[15px] font-semibold text-white transition-colors hover:bg-primary"
+              className="focus-ring mt-1 rounded-full bg-ink px-5 py-3 text-center text-[15px] font-semibold text-white transition-colors hover:bg-primary"
             >
               {ctaLabel}
             </a>

@@ -46,7 +46,7 @@ export function ScrollToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.8 }}
           transition={{ duration: reduce ? 0 : 0.2, ease: 'easeOut' }}
-          className="glass-strong fixed right-5 bottom-5 z-40 grid size-12 cursor-pointer place-items-center rounded-full text-ink shadow-glass transition-colors hover:text-primary"
+          className="focus-ring glass-strong fixed right-5 bottom-5 z-40 grid size-12 cursor-pointer place-items-center rounded-full text-ink shadow-glass transition-colors hover:text-primary"
         >
           <ArrowUp className="size-5" />
         </motion.button>
