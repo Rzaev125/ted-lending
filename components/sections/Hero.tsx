@@ -28,12 +28,38 @@ export function Hero({
   return (
     <section className="px-5 pt-20 pb-16 sm:px-8 sm:pt-24 sm:pb-20">
       <Reveal className="mx-auto max-w-[920px] text-center">
-        <h1 className="mb-6 font-extrabold leading-[1.02] tracking-[-0.035em] text-balance text-[clamp(36px,6.4vw,88px)] text-ink">
-          <span className="bg-linear-to-r from-primary via-primary-2 to-accent-pink bg-clip-text text-transparent">
+        <h1 className="font-extrabold leading-[1.02] tracking-[-0.035em] text-balance text-[clamp(36px,6.4vw,88px)] text-ink">
+          <span className="block bg-linear-to-r from-primary via-primary-2 to-accent-pink bg-clip-text text-transparent">
             {resolveLocalized(hero.title_lead, locale)}
           </span>
-          {resolveLocalized(hero.title_tail, locale)}
         </h1>
+        {(() => {
+          // Slogan as a sub-headline (its own <p>, not inside the <h1>): the two
+          // clauses are joined by an on-brand gradient em-dash; each half is
+          // nowrap so on narrow screens it folds to two balanced lines at the
+          // dash instead of breaking mid-word. Tolerant of a legacy "\n" split.
+          const tail = resolveLocalized(hero.title_tail, locale);
+          const sep = tail.includes('—') ? '—' : '\n';
+          const [rawLead, ...rest] = tail.split(sep);
+          const lead = rawLead.replace(/\s+/g, ' ').trim();
+          const goal = rest.join(' ').replace(/\s+/g, ' ').trim();
+          return (
+            <p className="mx-auto mt-3 mb-10 max-w-[34ch] text-balance font-medium tracking-[0.01em] text-ink-2 text-[clamp(18px,2.4vw,30px)] leading-[1.3] sm:mt-4 sm:mb-12">
+              <span className="whitespace-nowrap">{lead}</span>
+              {goal && (
+                <>
+                  <span
+                    aria-hidden="true"
+                    className="mx-[0.4ch] inline-block translate-y-[0.04em] bg-linear-to-r from-primary to-accent-pink bg-clip-text font-semibold text-transparent"
+                  >
+                    —
+                  </span>
+                  <span className="whitespace-nowrap">{goal}</span>
+                </>
+              )}
+            </p>
+          );
+        })()}
         <p className="mx-auto mb-11 max-w-[680px] text-pretty leading-[1.55] text-ink-2 text-[clamp(17px,1.5vw,21px)]">
           {resolveLocalized(hero.subtitle, locale)}
         </p>

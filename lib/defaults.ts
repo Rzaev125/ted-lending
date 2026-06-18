@@ -21,9 +21,9 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       },
       title_lead: { ru: 'TED Academy', en: 'TED Academy', az: 'TED Academy' },
       title_tail: {
-        ru: ' — учись у лучших, будь лучшим',
-        en: ' — learn from the best, be the best',
-        az: ' — ən yaxşılardan öyrən, ən yaxşı ol',
+        ru: 'Ваш успех — наша цель',
+        en: 'Your success — our goal',
+        az: 'Sizin uğurunuz — bizim məqsədimiz',
       },
       subtitle: {
         ru:
@@ -205,17 +205,18 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
         {
           ru:
             'Окончил Бакинский Государственный Университет, факультет «Математики», ' +
-            'и магистратуру по методике преподавания математики с красным дипломом. ' +
+            'и магистратуру по специальности [[«Методика преподавания математики»]] ' +
+            'с красным дипломом. ' +
             'Работал в государственных и частных школах, вёл индивидуальную ' +
             'подготовку по Curriculum / DİM, SAT, IB, IGCSE и Calculus.',
           en:
             'Graduated from Baku State University, Faculty of Mathematics, and ' +
-            'completed a master’s degree in mathematics teaching methodology with ' +
+            'completed a master’s degree in [[«Mathematics teaching methodology»]] with ' +
             'honours. He worked in public and private schools and provided ' +
             'individual preparation for Curriculum / DİM, SAT, IB, IGCSE and Calculus.',
           az:
-            'Bakı Dövlət Universitetinin «Riyaziyyat» fakültəsini və riyaziyyatın ' +
-            'tədrisi metodikası üzrə magistraturanı fərqlənmə diplomu ilə bitirib. ' +
+            'Bakı Dövlət Universitetinin «Riyaziyyat» fakültəsini və [[«Riyaziyyatın ' +
+            'tədrisi metodikası»]] üzrə magistraturanı fərqlənmə diplomu ilə bitirib. ' +
             'Dövlət və özəl məktəblərdə çalışıb, Curriculum / DİM, SAT, IB, IGCSE və ' +
             'Calculus üzrə fərdi hazırlıq aparıb.',
         },
@@ -223,14 +224,14 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
           ru:
             'По всеобщей просьбе родителей основал WisDoM Education Center, позже ' +
             'переименованный в TED Academy by Fuad Ismayilov. Автор 20+ электронных ' +
-            'учебников по SAT, YÖS и Curriculum/DİM на трёх языках.',
+            'учебников по SAT и Curriculum/DİM на трёх языках.',
           en:
             'At the parents’ request he founded the WisDoM Education Center, later ' +
             'renamed TED Academy by Fuad Ismayilov. He is the author of 20+ ' +
-            'e-textbooks for SAT, YÖS and Curriculum/DİM in three languages.',
+            'e-textbooks for SAT and Curriculum/DİM in three languages.',
           az:
             'Valideynlərin ümumi istəyi ilə WisDoM Education Center-i təsis edib, ' +
-            'sonradan TED Academy by Fuad Ismayilov adlandırılıb. SAT, YÖS və ' +
+            'sonradan TED Academy by Fuad Ismayilov adlandırılıb. SAT və ' +
             'Curriculum/DİM üzrə üç dildə 20-dən çox elektron dərsliyin müəllifidir.',
         },
       ],

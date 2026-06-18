@@ -15,6 +15,24 @@ function initials(name: string): string {
     .join('');
 }
 
+/**
+ * Render bio copy, emphasising any ``[[…]]``-wrapped segment (a quoted
+ * programme/credential name) so it stands out from the body text: uppercase,
+ * bold, in brand indigo. ``split`` with a capturing group puts the matched
+ * inner text at odd indices.
+ */
+function renderBio(text: string) {
+  return text.split(/\[\[(.+?)\]\]/g).map((part, index) =>
+    index % 2 === 1 ? (
+      <strong key={index} className="font-bold tracking-[0.01em] text-primary uppercase">
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
+  );
+}
+
 export async function Founder({
   founder,
   locale,
@@ -76,7 +94,7 @@ export async function Founder({
                   key={index}
                   className="mb-6 text-pretty text-[16px] leading-[1.6] text-ink-2"
                 >
-                  {resolveLocalized(paragraph, locale)}
+                  {renderBio(resolveLocalized(paragraph, locale))}
                 </p>
               ))}
               <div className="rounded-xl border-l-[3px] border-primary bg-primary/5 px-5 py-4 text-[15px] font-medium italic leading-[1.5] text-ink">
