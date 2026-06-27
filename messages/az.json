@@ -42,7 +42,38 @@
     },
     "subjects": {
       "eyebrow": "Nə tədris edirik",
-      "heading": "Fənlər və istiqamətlər"
+      "heading": "Fənlər və istiqamətlər",
+      "subheading": "Riyaziyyat, dillər, SAT, IELTS, DİM, IT və Study Abroad — Bakıda əyani və onlayn."
+    },
+    "faq": {
+      "eyebrow": "Suallar və cavablar",
+      "heading": "Tez-tez verilən suallar",
+      "items": {
+        "courses": {
+          "q": "TED Academy-də hansı kurslar və istiqamətlər var?",
+          "a": "Riyaziyyat və dəqiq elmlər, dillər (ingilis, IELTS, TOEFL, rus, Azərbaycan dili), SAT və DİM imtahan hazırlığı, IT (Full-stack, Frontend, Backend, UI/UX, Data Analytics) və Study Abroad — 1–11-ci siniflər və böyüklər üçün."
+        },
+        "location": {
+          "q": "TED Academy Bakıda harada yerləşir?",
+          "a": "Tədris mərkəzimiz Bakıda, Seyfəddin Dağlı 51 ünvanındadır. Dərslər mərkəzdə əyani və xaricdəki şagirdlər üçün onlayn keçirilir."
+        },
+        "languages": {
+          "q": "Dərslər hansı dillərdə keçirilir?",
+          "a": "Azərbaycan, rus və ingilis dillərində tədris aparırıq — uşağınıza uyğun dili seçə bilərsiniz."
+        },
+        "trial": {
+          "q": "Sınaq dərsinə necə yazılmaq olar?",
+          "a": "Saytdakı forma vasitəsilə müraciət edin və ya bizə zəng edin — konsultasiya pulsuzdur, müəllim və uyğun vaxt seçəcəyik."
+        },
+        "exams": {
+          "q": "SAT, IELTS və DİM-ə hazırlayırsınız?",
+          "a": "Bəli. SAT (Math & Verbal), IELTS, TOEFL, Duolingo və DİM buraxılış və qəbul imtahanlarına müəllif dərslikləri və müntəzəm sınaq imtahanları ilə hazırlayırıq."
+        },
+        "online": {
+          "q": "Onlayn təhsil var?",
+          "a": "Bəli — bütün istiqamətlər onlayn mövcuddur, fərdi plan və rəqəmsal tətbiqlə, beləliklə dünyanın istənilən yerindən oxumaq olar."
+        }
+      }
     }
   },
   "form": {

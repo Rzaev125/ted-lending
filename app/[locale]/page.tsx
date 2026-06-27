@@ -3,6 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 
 import { ContactChannels } from '@/components/sections/ContactChannels';
 import { Courses } from '@/components/sections/Courses';
+import { Faq } from '@/components/sections/Faq';
 import { Footer } from '@/components/sections/Footer';
 import { Founder } from '@/components/sections/Founder';
 import { Hero } from '@/components/sections/Hero';
@@ -28,9 +29,9 @@ const OG_LOCALE: Record<string, string> = { ru: 'ru_RU', en: 'en_US', az: 'az_AZ
  * ru/az Baku audience — still reads the ``keywords`` meta tag.
  */
 const KEYWORDS: Record<string, string[]> = {
-  ru: ['TED Academy', 'учебный центр Баку', 'подготовка к SAT', 'IELTS Баку', 'подготовка к DİM', 'математика', 'Study Abroad', 'репетитор Баку'],
-  en: ['TED Academy', 'educational center Baku', 'SAT prep', 'IELTS Baku', 'DİM preparation', 'mathematics', 'Study Abroad', 'tutoring Baku'],
-  az: ['TED Academy', 'Bakıda tədris mərkəzi', 'SAT hazırlığı', 'IELTS Bakı', 'DİM hazırlığı', 'riyaziyyat', 'Study Abroad', 'repetitor Bakı'],
+  ru: ['TED Academy', 'TED Academy Баку', 'учебный центр Баку', 'курсы Баку', 'обучение Баку', 'подготовка к SAT', 'SAT Баку', 'IELTS Баку', 'TOEFL', 'подготовка к DİM', 'математика Баку', 'английский язык Баку', 'IT курсы Баку', 'курсы программирования Баку', 'Study Abroad', 'репетитор Баку', 'Fuad Ismayilov'],
+  en: ['TED Academy', 'TED Academy Baku', 'educational center Baku', 'courses Baku', 'tutoring Baku', 'SAT prep', 'SAT Baku', 'IELTS Baku', 'TOEFL', 'DİM preparation', 'mathematics Baku', 'English courses Baku', 'IT courses Baku', 'programming courses Baku', 'Study Abroad', 'Fuad Ismayilov'],
+  az: ['TED Academy', 'TED Academy Bakı', 'Bakıda tədris mərkəzi', 'Bakıda kurslar', 'SAT hazırlığı', 'SAT Bakı', 'IELTS Bakı', 'TOEFL', 'DİM hazırlığı', 'riyaziyyat Bakı', 'ingilis dili Bakı', 'IT kursları Bakı', 'proqramlaşdırma kursları Bakı', 'Study Abroad', 'repetitor Bakı', 'Fuad İsmayılov'],
 };
 
 /** Path segment for a locale (default ``ru`` has no prefix — ``localePrefix: 'as-needed'``). */
@@ -151,6 +152,7 @@ export default async function HomePage({
       <Testimonials testimonials={site.testimonials} locale={locale} />
       <ContactChannels contacts={site.content.contacts} />
       <LeadForm courses={site.courses} />
+      <Faq />
       <Footer
         contacts={site.content.contacts}
         locale={locale}

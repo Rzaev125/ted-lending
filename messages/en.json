@@ -42,7 +42,38 @@
     },
     "subjects": {
       "eyebrow": "What we teach",
-      "heading": "Subjects & directions"
+      "heading": "Subjects & directions",
+      "subheading": "Mathematics, languages, SAT, IELTS, DİM, IT and Study Abroad — in person in Baku and online."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "heading": "Frequently asked questions",
+      "items": {
+        "courses": {
+          "q": "What courses and directions does TED Academy offer?",
+          "a": "Mathematics and sciences, languages (English, IELTS, TOEFL, Russian, Azerbaijani), SAT and DİM exam prep, IT (Full-stack, Frontend, Backend, UI/UX, Data Analytics) and Study Abroad — for grades 1–11 and adults."
+        },
+        "location": {
+          "q": "Where is TED Academy located in Baku?",
+          "a": "Our educational center is in Baku at Seyfəddin Dağlı 51. Lessons are held in person at the center and online for students abroad."
+        },
+        "languages": {
+          "q": "What languages are classes taught in?",
+          "a": "We teach in Azerbaijani, Russian and English, so you can pick the language that suits your child best."
+        },
+        "trial": {
+          "q": "How do I sign up for a trial lesson?",
+          "a": "Leave a request through the form on this site or call us — the consultation is free, and we'll pick a teacher and a convenient time."
+        },
+        "exams": {
+          "q": "Do you prepare students for SAT, IELTS and DİM?",
+          "a": "Yes. We prepare for SAT (Math & Verbal), IELTS, TOEFL, Duolingo and the DİM graduation and entrance exams, using our own textbooks and regular mock exams."
+        },
+        "online": {
+          "q": "Is online learning available?",
+          "a": "Yes — every direction is available online with a personal study plan and a digital app, so students anywhere in the world can study with us."
+        }
+      }
     }
   },
   "form": {

@@ -21,7 +21,7 @@ export async function Subjects({
     <section id="subjects" className="px-5 pb-16 sm:px-8 sm:pb-24 md:pb-30">
       <div className="container mx-auto max-w-[1080px]">
         <Reveal className="mb-10 text-center sm:mb-14">
-          <SectionHeading eyebrow={t('eyebrow')} heading={t('heading')} />
+          <SectionHeading eyebrow={t('eyebrow')} heading={t('heading')} subheading={t('subheading')} />
         </Reveal>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-fr">
           {visible.map((pill, index) => (
