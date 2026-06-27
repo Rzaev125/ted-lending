@@ -114,11 +114,30 @@ export interface LandingTestimonial {
   archived_at: string | null;
 }
 
+export interface LandingResult {
+  id: string;
+  order_index: number;
+  /** Student name (not localized). */
+  author_name: string;
+  /** Resolved (presigned) photo URL, or null → fall back to the initial avatar. */
+  photo_url: string | null;
+  avatar_initial: string;
+  avatar_gradient_from: string;
+  avatar_gradient_to: string;
+  /** Which course the student studied (e.g. "SAT / Mathematics"). */
+  course: LocalizedText;
+  /** Where the student was admitted (university + note). */
+  admission: LocalizedText;
+  archived_at: string | null;
+}
+
 export interface PublicSiteBundle {
   content: SiteContentRead;
   courses: LandingCourse[];
   subjects: LandingSubjectPill[];
   testimonials: LandingTestimonial[];
+  /** Optional — the backend may not serve this field yet; callers guard with ``?? []``. */
+  results?: LandingResult[];
 }
 
 // ============================================================================

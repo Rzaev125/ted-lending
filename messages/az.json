@@ -2,6 +2,7 @@
   "nav": {
     "directions": "Haqqımızda",
     "whyUs": "Niyə biz",
+    "results": "Nəticələr",
     "founder": "Banı",
     "reviews": "Rəylər",
     "contact": "Əlaqə",
@@ -11,6 +12,9 @@
     "skip": "Məzmuna keç"
   },
   "brand": "TED Academy",
+  "hero": {
+    "tagline": "Bakıda tədris mərkəzi"
+  },
   "sections": {
     "courses": {
       "eyebrow": "Haqqımızda",
@@ -19,6 +23,11 @@
     },
     "whyUs": {
       "eyebrow": "Niyə TED Academy"
+    },
+    "results": {
+      "eyebrow": "Şagirdlərimizin nəticələri",
+      "heading": "Qəbullar və nailiyyətlər",
+      "subheading": "TED Academy məzunları haraya qəbul olur"
     },
     "founder": {
       "eyebrow": "Banı",
@@ -30,6 +39,10 @@
       "prev": "Əvvəlki rəy",
       "next": "Növbəti rəy",
       "dot": "Rəy {n}"
+    },
+    "subjects": {
+      "eyebrow": "Nə tədris edirik",
+      "heading": "Fənlər və istiqamətlər"
     }
   },
   "form": {

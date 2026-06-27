@@ -27,6 +27,7 @@ export async function Nav({
   const links = [
     { href: '#courses', label: t('directions') },
     { href: '#why', label: t('whyUs') },
+    { href: '#results', label: t('results') },
     { href: '#founder', label: t('founder') },
     { href: '#reviews', label: t('reviews') },
     // Points at the in-page ContactChannels section (#contacts), not the footer
@@ -37,24 +38,24 @@ export async function Nav({
     { href: '#contacts', label: t('contact') },
   ];
   return (
-    <nav className="group sticky top-5 z-50 mx-auto mt-5 max-w-[1100px] px-4 sm:px-6">
-      <div className="glass-strong relative flex items-center justify-between gap-3 rounded-full px-4 py-3 sm:px-6 sm:py-3.5">
+    <header className="group sticky top-5 z-50 mx-auto mt-5 max-w-[1100px] px-4 sm:px-6">
+      <nav aria-label={t('menu')} className="glass-strong relative flex items-center justify-between gap-3 rounded-full px-4 py-3 sm:px-6 sm:py-3.5">
         <Link href="/" aria-label={tRoot('brand')} className="focus-ring flex shrink-0 items-center no-underline">
           {/* eslint-disable-next-line @next/next/no-img-element -- logo is a dynamic presigned/local URL; next/image can't take an unknown presigned host */}
-          <img src={logoUrl ?? '/Logo.avif'} alt={tRoot('brand')} className="h-5 w-auto object-contain sm:h-5 lg:h-7" />
+          <img src={logoUrl ?? '/Logo.avif'} alt={tRoot('brand')} width={1225} height={228} className="h-5 w-auto object-contain sm:h-5 lg:h-7" />
         </Link>
         <NavLinks links={links} />
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
           <a
             href="#form"
-            className="focus-ring hidden rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white no-underline transition-all hover:-translate-y-px hover:bg-primary lg:inline-flex"
+            className="focus-ring hidden rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white no-underline transition-all hover:-translate-y-px hover:bg-primary xl:inline-flex"
           >
             {t('cta')}
           </a>
           <MobileMenu links={links} ctaHref="#form" ctaLabel={t('cta')} menuLabel={t('menu')} />
         </div>
-      </div>
+      </nav>
 
       {announcement && (
         <div className="mt-3 flex max-w-full justify-center transition-opacity duration-200 group-has-[#mobile-menu]:pointer-events-none group-has-[#mobile-menu]:opacity-0">
@@ -67,6 +68,6 @@ export async function Nav({
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 }

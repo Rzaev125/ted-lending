@@ -10,9 +10,9 @@ interface MobileMenuLink {
 }
 
 /**
- * Burger menu for <lg viewports. The parent ``Nav`` is a server component and
+ * Burger menu for <xl viewports. The parent ``Nav`` is a server component and
  * passes already-localized strings in (this client island holds only the
- * open/close state). Hidden at ``lg`` and up, where the desktop link row +
+ * open/close state). Hidden at ``xl`` and up, where the desktop link row +
  * CTA take over.
  *
  * While open it traps Tab focus inside the panel, locks background scroll, and
@@ -87,7 +87,7 @@ export function MobileMenu({
   }, [open]);
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         ref={triggerRef}
         type="button"

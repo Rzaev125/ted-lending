@@ -28,4 +28,12 @@ export const env = {
     }
     return 'http://localhost:3000';
   },
+  /** Search Console / Yandex Webmaster ownership codes — optional, rendered as
+   *  ``<meta name="...-site-verification">``. Public values; never throw. */
+  get GOOGLE_SITE_VERIFICATION(): string | undefined {
+    return process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined;
+  },
+  get YANDEX_VERIFICATION(): string | undefined {
+    return process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || undefined;
+  },
 };

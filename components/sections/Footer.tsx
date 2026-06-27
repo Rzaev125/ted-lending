@@ -22,7 +22,7 @@ export async function Footer({
           <div className="order-1 md:order-0">
             <div className="mb-3.5 flex justify-center md:block">
               {/* eslint-disable-next-line @next/next/no-img-element -- logo is a dynamic presigned/local URL; next/image can't take an unknown presigned host */}
-              <img src={logoUrl ?? '/Logo.avif'} alt={tRoot('brand')} className="h-5 w-auto object-contain sm:h-5 lg:h-7" />
+              <img src={logoUrl ?? '/Logo.avif'} alt={tRoot('brand')} width={1225} height={228} className="h-5 w-auto object-contain sm:h-5 lg:h-7" />
             </div>
             <p className="text-[14px] leading-[1.55] text-ink-2">{t('tagline')}</p>
           </div>

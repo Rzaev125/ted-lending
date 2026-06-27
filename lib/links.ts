@@ -104,6 +104,19 @@ const SOCIAL_LINKS: Record<'instagram' | 'tiktok' | 'facebook' | 'linkedin' | 'y
 };
 
 /**
+ * Брендовые профили в соцсетях для schema.org ``sameAs`` (JSON-LD,
+ * {@link ./schema}). Только публичные профили-страницы — телефон/e-mail/WhatsApp
+ * сюда не входят (это контакты, а не «тот же субъект» в терминах sameAs).
+ */
+export const SOCIAL_PROFILE_URLS: string[] = [
+  SOCIAL_LINKS.instagram.href,
+  SOCIAL_LINKS.tiktok.href,
+  SOCIAL_LINKS.facebook.href,
+  SOCIAL_LINKS.linkedin.href,
+  SOCIAL_LINKS.youtube.href,
+];
+
+/**
  * Каналы связи для секции контактов. Соцсети — статика; WhatsApp, телефон и e-mail
  * строятся из переданных `contacts` (редактируемых из админки), с фоллбэком на
  * значения по умолчанию. Порядок прежний: instagram, tiktok, whatsapp, facebook,

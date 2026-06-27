@@ -1,7 +1,7 @@
 import { MessageSquare, Phone } from 'lucide-react';
+import { getTranslations } from 'next-intl/server';
 
 import { CtaButton } from '@/components/ui/CtaButton';
-import { Reveal } from '@/components/ui/Reveal';
 import type { ContactsContent, HeroContent } from '@/lib/content';
 import { telHref, writeHref } from '@/lib/links';
 import { resolveLocalized } from '@/lib/localized';
@@ -12,7 +12,7 @@ import { resolveLocalized } from '@/lib/localized';
  * «Напишите нам» CTAs (call → ``tel:``, write → WhatsApp/e-mail, both from the
  * editable ``contacts``), and the statistic tiles below.
  */
-export function Hero({
+export async function Hero({
   hero,
   contacts,
   locale,
@@ -21,17 +21,24 @@ export function Hero({
   contacts: ContactsContent;
   locale: string;
 }) {
+  const t = await getTranslations('hero');
   const callHref = telHref(contacts.phone);
   const messageHref = writeHref(contacts);
   const messageExternal = /^https?:/.test(messageHref);
 
   return (
     <section className="px-5 pt-20 pb-16 sm:px-8 sm:pt-24 sm:pb-20">
-      <Reveal className="mx-auto max-w-[920px] text-center">
+      {/* CSS ``.ted-reveal`` (not the framer <Reveal>) so this above-the-fold
+          block — which holds the LCP <h1> — is server-rendered fully visible and
+          isn't gated behind hydration. */}
+      <div className="ted-reveal mx-auto max-w-[920px] text-center">
         <h1 className="font-extrabold leading-[1.02] tracking-[-0.035em] text-balance text-[clamp(36px,6.4vw,88px)] text-ink">
           <span className="block bg-linear-to-r from-primary via-primary-2 to-accent-pink bg-clip-text text-transparent">
             {resolveLocalized(hero.title_lead, locale)}
           </span>
+          {/* Keyword-bearing descriptor for SEO + a11y; visually the hero stays
+              the brand wordmark, screen readers/crawlers get "…— <city descriptor>". */}
+          <span className="sr-only"> — {t('tagline')}</span>
         </h1>
         {(() => {
           // Slogan as a sub-headline (its own <p>, not inside the <h1>): the two
@@ -44,14 +51,11 @@ export function Hero({
           const lead = rawLead.replace(/\s+/g, ' ').trim();
           const goal = rest.join(' ').replace(/\s+/g, ' ').trim();
           return (
-            <p className="mx-auto mt-3 mb-10 max-w-[34ch] text-balance font-medium tracking-[0.01em] text-ink-2 text-[clamp(18px,2.4vw,30px)] leading-[1.3] sm:mt-4 sm:mb-12">
+            <p className="mx-auto mt-3 mb-10 max-w-[34ch] bg-linear-to-r from-primary via-primary-2 to-accent-pink bg-clip-text text-balance font-semibold italic tracking-[0.01em] text-transparent text-[clamp(19px,2.6vw,32px)] leading-[1.3] sm:mt-4 sm:mb-12">
               <span className="whitespace-nowrap">{lead}</span>
               {goal && (
                 <>
-                  <span
-                    aria-hidden="true"
-                    className="mx-[0.4ch] inline-block translate-y-[0.04em] bg-linear-to-r from-primary to-accent-pink bg-clip-text font-semibold text-transparent"
-                  >
+                  <span aria-hidden="true" className="mx-[0.4ch]">
                     —
                   </span>
                   <span className="whitespace-nowrap">{goal}</span>
@@ -92,7 +96,7 @@ export function Hero({
             ))}
           </div>
         )}
-      </Reveal>
+      </div>
     </section>
   );
 }

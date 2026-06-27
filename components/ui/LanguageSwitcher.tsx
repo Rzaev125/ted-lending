@@ -10,8 +10,9 @@ import { usePathname, useRouter } from '@/lib/navigation';
 /**
  * Native ``<select>`` language switcher. Uses next-intl's locale-aware router
  * ({@link @/lib/navigation}) so switching re-applies the correct ``as-needed``
- * prefix AND sets the ``NEXT_LOCALE`` cookie — without the cookie update,
- * returning to the default locale (ru) bounces back via locale detection.
+ * prefix and records the choice in the ``NEXT_LOCALE`` cookie. (Locale
+ * auto-detection is disabled in {@link @/lib/routing}, so the URL alone decides
+ * the language — switching is always an explicit, crawler-safe navigation.)
  */
 export function LanguageSwitcher() {
   const router = useRouter();

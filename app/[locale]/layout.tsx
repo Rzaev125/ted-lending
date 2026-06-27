@@ -1,3 +1,4 @@
+import type { Metadata, Viewport } from 'next';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Inter } from 'next/font/google';
@@ -6,9 +7,30 @@ import type { ReactNode } from 'react';
 
 import { Blobs } from '@/components/ui/Blobs';
 import { ScrollToTop } from '@/components/ui/ScrollToTop';
+import { env } from '@/lib/env';
 import { locales } from '@/lib/i18n';
 
 import '../globals.css';
+
+/** Brand colour for the browser UI (Safari/Edge/Android) + explicit viewport. */
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#2415C2',
+  colorScheme: 'light',
+};
+
+/**
+ * Site-wide metadata that should not vary per page: search-engine ownership
+ * verification. (Title/description/OG/canonical are set per page in
+ * ``app/[locale]/page.tsx``.) Codes come from env and are omitted when unset.
+ */
+export const metadata: Metadata = {
+  verification: {
+    ...(env.GOOGLE_SITE_VERIFICATION ? { google: env.GOOGLE_SITE_VERIFICATION } : {}),
+    ...(env.YANDEX_VERIFICATION ? { yandex: env.YANDEX_VERIFICATION } : {}),
+  },
+};
 
 const inter = Inter({
   subsets: ['latin', 'cyrillic'],

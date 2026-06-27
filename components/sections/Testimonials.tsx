@@ -58,10 +58,19 @@ export function Testimonials({
   useEffect(() => {
     const el = stripRef.current;
     if (!el) return;
-    const observer = new ResizeObserver(() => setWidth(el.offsetWidth));
+    // Debounce resize updates (~200ms): a resize/drag storm otherwise re-fires
+    // the slide-align effect on every frame, hurting INP.
+    let timer = 0;
+    const observer = new ResizeObserver(() => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => setWidth(el.offsetWidth), 200);
+    });
     observer.observe(el);
     setWidth(el.offsetWidth);
-    return () => observer.disconnect();
+    return () => {
+      window.clearTimeout(timer);
+      observer.disconnect();
+    };
   }, []);
 
   // Keep the strip aligned to the active slide. Skipped while dragging so

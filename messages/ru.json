@@ -2,15 +2,19 @@
   "nav": {
     "directions": "О нас",
     "whyUs": "Почему мы",
+    "results": "Успехи",
     "founder": "Основатель",
     "reviews": "Отзывы",
     "contact": "Контакты",
-    "cta": "Стань нашим учеником",
+    "cta": "Записаться",
     "menu": "Меню",
     "toTop": "Наверх",
     "skip": "Перейти к содержимому"
   },
   "brand": "TED Academy",
+  "hero": {
+    "tagline": "учебный центр в Баку"
+  },
   "sections": {
     "courses": {
       "eyebrow": "О нас",
@@ -19,6 +23,11 @@
     },
     "whyUs": {
       "eyebrow": "Почему TED Academy"
+    },
+    "results": {
+      "eyebrow": "Результаты наших учеников",
+      "heading": "Поступления и достижения",
+      "subheading": "Куда поступают выпускники TED Academy"
     },
     "founder": {
       "eyebrow": "Основатель",
@@ -30,6 +39,10 @@
       "prev": "Предыдущий отзыв",
       "next": "Следующий отзыв",
       "dot": "Отзыв {n}"
+    },
+    "subjects": {
+      "eyebrow": "Что мы преподаём",
+      "heading": "Предметы и направления"
     }
   },
   "form": {

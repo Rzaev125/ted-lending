@@ -110,7 +110,7 @@ export function LeadForm({ courses }: { courses: LandingCourse[] }) {
                     aria-required
                     aria-invalid={errors.name || undefined}
                     aria-describedby={errors.name ? 'lead-error' : undefined}
-                    className={`rounded-[18px] border bg-white/55 px-4.5 py-3.5 text-[15px] outline-none backdrop-blur-md transition-all focus:bg-white/85 sm:py-4 ${
+                    className={`rounded-[18px] border bg-white/55 px-4.5 py-3.5 text-[15px] outline-none backdrop-blur-sm transition-all focus:bg-white/85 sm:py-4 ${
                       errors.name
                         ? 'border-accent-pink/70 focus:border-accent-pink focus:shadow-[0_0_0_4px_rgba(166,1,169,0.15)]'
                         : 'border-white/50 focus:border-primary focus:shadow-[0_0_0_4px_rgba(36,21,194,0.12)]'
@@ -132,7 +132,7 @@ export function LeadForm({ courses }: { courses: LandingCourse[] }) {
                     aria-required
                     aria-invalid={errors.phone || undefined}
                     aria-describedby={errors.phone ? 'lead-error' : undefined}
-                    className={`rounded-[18px] border bg-white/55 px-4.5 py-3.5 text-[15px] outline-none backdrop-blur-md transition-all focus:bg-white/85 sm:py-4 ${
+                    className={`rounded-[18px] border bg-white/55 px-4.5 py-3.5 text-[15px] outline-none backdrop-blur-sm transition-all focus:bg-white/85 sm:py-4 ${
                       errors.phone
                         ? 'border-accent-pink/70 focus:border-accent-pink focus:shadow-[0_0_0_4px_rgba(166,1,169,0.15)]'
                         : 'border-white/50 focus:border-primary focus:shadow-[0_0_0_4px_rgba(36,21,194,0.12)]'
@@ -144,7 +144,7 @@ export function LeadForm({ courses }: { courses: LandingCourse[] }) {
                     <select
                       value={course}
                       onChange={(event) => setCourse(event.target.value)}
-                      className="w-full appearance-none rounded-[18px] border border-white/50 bg-white/55 px-4.5 py-3.5 pr-11 text-[15px] outline-none backdrop-blur-md transition-all focus:border-primary focus:bg-white/85 focus:shadow-[0_0_0_4px_rgba(36,21,194,0.12)] sm:py-4"
+                      className="w-full appearance-none rounded-[18px] border border-white/50 bg-white/55 px-4.5 py-3.5 pr-11 text-[15px] outline-none backdrop-blur-sm transition-all focus:border-primary focus:bg-white/85 focus:shadow-[0_0_0_4px_rgba(36,21,194,0.12)] sm:py-4"
                     >
                       <option value="">{t('fields.coursePlaceholder')}</option>
                       {courses.map((c) => (
@@ -167,7 +167,7 @@ export function LeadForm({ courses }: { courses: LandingCourse[] }) {
                     <select
                       value={timeSlot}
                       onChange={(event) => setTimeSlot(event.target.value)}
-                      className="w-full appearance-none rounded-[18px] border border-white/50 bg-white/55 px-4.5 py-3.5 pr-11 text-[15px] outline-none backdrop-blur-md transition-all focus:border-primary focus:bg-white/85 focus:shadow-[0_0_0_4px_rgba(36,21,194,0.12)] sm:py-4"
+                      className="w-full appearance-none rounded-[18px] border border-white/50 bg-white/55 px-4.5 py-3.5 pr-11 text-[15px] outline-none backdrop-blur-sm transition-all focus:border-primary focus:bg-white/85 focus:shadow-[0_0_0_4px_rgba(36,21,194,0.12)] sm:py-4"
                     >
                       <option value="">{t('fields.timePlaceholder')}</option>
                       {TIME_SLOT_KEYS.map((key) => (

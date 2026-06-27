@@ -1,9 +1,12 @@
+import { getTranslations } from 'next-intl/server';
+
 import { Reveal } from '@/components/ui/Reveal';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import { safeHex } from '@/lib/color';
 import type { LandingSubjectPill } from '@/lib/content';
 import { resolveLocalized } from '@/lib/localized';
 
-export function Subjects({
+export async function Subjects({
   subjects,
   locale,
 }: {
@@ -11,11 +14,15 @@ export function Subjects({
   locale: string;
 }) {
   if (subjects.length === 0) return null;
+  const t = await getTranslations('sections.subjects');
   // Defensive: enforce admin ordering even if the backend returns it unsorted.
   const visible = [...subjects].sort((a, b) => a.order_index - b.order_index);
   return (
-    <section className="px-5 pb-16 sm:px-8 sm:pb-24 md:pb-30">
+    <section id="subjects" className="px-5 pb-16 sm:px-8 sm:pb-24 md:pb-30">
       <div className="container mx-auto max-w-[1080px]">
+        <Reveal className="mb-10 text-center sm:mb-14">
+          <SectionHeading eyebrow={t('eyebrow')} heading={t('heading')} />
+        </Reveal>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-fr">
           {visible.map((pill, index) => (
             <Reveal key={pill.id} className="h-full" delay={Math.min(index, 9) * 0.05}>

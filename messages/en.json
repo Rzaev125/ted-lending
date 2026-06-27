@@ -2,6 +2,7 @@
   "nav": {
     "directions": "About us",
     "whyUs": "Why us",
+    "results": "Results",
     "founder": "Founder",
     "reviews": "Reviews",
     "contact": "Contact",
@@ -11,6 +12,9 @@
     "skip": "Skip to content"
   },
   "brand": "TED Academy",
+  "hero": {
+    "tagline": "educational center in Baku"
+  },
   "sections": {
     "courses": {
       "eyebrow": "About us",
@@ -19,6 +23,11 @@
     },
     "whyUs": {
       "eyebrow": "Why TED Academy"
+    },
+    "results": {
+      "eyebrow": "Our students' results",
+      "heading": "Admissions & achievements",
+      "subheading": "Where TED Academy graduates get in"
     },
     "founder": {
       "eyebrow": "Founder",
@@ -30,6 +39,10 @@
       "prev": "Previous review",
       "next": "Next review",
       "dot": "Review {n}"
+    },
+    "subjects": {
+      "eyebrow": "What we teach",
+      "heading": "Subjects & directions"
     }
   },
   "form": {

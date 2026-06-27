@@ -59,8 +59,8 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
           },
         },
         {
-          value: '2832+',
-          label: { ru: 'учеников', en: 'students', az: 'şagird' },
+          value: '3000+',
+          label: { ru: 'довольных учеников', en: 'happy students', az: 'məmnun şagird' },
         },
         {
           value: '20+',
@@ -192,9 +192,9 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       eyebrow: { ru: 'Founder & CEO', en: 'Founder & CEO', az: 'Təsisçi və CEO' },
       name: 'Fuad Ismayilov',
       title: {
-        ru: 'Выпускник БГУ, факультет математики · 27 лет преподавания математики',
-        en: 'Graduate of Baku State University, Faculty of Mathematics · 27 years teaching mathematics',
-        az: 'BDU-nun Riyaziyyat fakültəsinin məzunu · 27 illik riyaziyyat təcrübəsi',
+        ru: 'Выпускник БГУ, факультет механической математики · 27 лет преподавания математики',
+        en: 'Graduate of Baku State University, Faculty of Mechanics and Mathematics · 27 years teaching mathematics',
+        az: 'BDU-nun Mexanika-riyaziyyat fakültəsinin məzunu · 27 illik riyaziyyat təcrübəsi',
       },
       badge_label: {
         ru: 'Автор 20+ учебников',
@@ -204,21 +204,21 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       bio_paragraphs: [
         {
           ru:
-            'Окончил Бакинский Государственный Университет, факультет «Математики», ' +
-            'и магистратуру по специальности [[«Методика преподавания математики»]] ' +
+            'Окончил Бакинский Государственный Университет, факультет «Механической ' +
+            'математики», и магистратуру по специальности [[«Методика преподавания»]] ' +
             'с красным дипломом. ' +
             'Работал в государственных и частных школах, вёл индивидуальную ' +
-            'подготовку по Curriculum / DİM, SAT, IB, IGCSE и Calculus.',
+            'подготовку по Curriculum / DİM, SAT и IB.',
           en:
-            'Graduated from Baku State University, Faculty of Mathematics, and ' +
-            'completed a master’s degree in [[«Mathematics teaching methodology»]] with ' +
-            'honours. He worked in public and private schools and provided ' +
-            'individual preparation for Curriculum / DİM, SAT, IB, IGCSE and Calculus.',
+            'Graduated from Baku State University, Faculty of Mechanics and ' +
+            'Mathematics, and completed a master’s degree in [[«Teaching methodology»]] ' +
+            'with honours. He worked in public and private schools and provided ' +
+            'individual preparation for Curriculum / DİM, SAT and IB.',
           az:
-            'Bakı Dövlət Universitetinin «Riyaziyyat» fakültəsini və [[«Riyaziyyatın ' +
-            'tədrisi metodikası»]] üzrə magistraturanı fərqlənmə diplomu ilə bitirib. ' +
-            'Dövlət və özəl məktəblərdə çalışıb, Curriculum / DİM, SAT, IB, IGCSE və ' +
-            'Calculus üzrə fərdi hazırlıq aparıb.',
+            'Bakı Dövlət Universitetinin «Mexanika-riyaziyyat» fakültəsini və ' +
+            '[[«Tədris metodikası»]] üzrə magistraturanı fərqlənmə diplomu ilə bitirib. ' +
+            'Dövlət və özəl məktəblərdə çalışıb, Curriculum / DİM, SAT və IB üzrə ' +
+            'fərdi hazırlıq aparıb.',
         },
         {
           ru:
@@ -246,15 +246,18 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       email: 'office@ted.edu.az',
       whatsapp_url: 'https://wa.me/994552446969',
       telegram_url: 'https://t.me/tedacademy',
-      address: { ru: 'г. Баку, Азербайджан', en: 'Baku, Azerbaijan', az: 'Bakı, Azərbaycan' },
+      address: {
+        ru: 'Баку, ул. Сейфеддин Даглы, 51',
+        en: 'Baku, Seyfəddin Dağlı 51',
+        az: 'Bakı, Seyfəddin Dağlı 51',
+      },
       hours: [
         {
           ru: 'Очные и онлайн-занятия',
           en: 'In-person and online classes',
           az: 'Əyani və onlayn dərslər',
         },
-        { ru: 'Пн–Пт: 09:00–21:00', en: 'Mon–Fri: 09:00–21:00', az: 'B.e–C: 09:00–21:00' },
-        { ru: 'Сб–Вс: 10:00–18:00', en: 'Sat–Sun: 10:00–18:00', az: 'Ş–B: 10:00–18:00' },
+        { ru: 'Пн–Сб: 10:00–18:00', en: 'Mon–Sat: 10:00–18:00', az: 'B.e–Ş: 10:00–18:00' },
       ],
       map_link: null,
     },
@@ -292,14 +295,14 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       },
       body: {
         ru:
-          'Математика с 1 по 11 класс, Calculus, физика, химия, биология, география. ' +
+          'Математика с 1 по 11 класс, Calculus, физика, химия, биология, география, история. ' +
           'Авторские электронные учебники Фуада Исмаилова.',
         en:
           'Mathematics for grades 1–11, Calculus, physics, chemistry, biology, ' +
-          'geography. Original e-textbooks by Fuad Ismayilov.',
+          'geography, history. Original e-textbooks by Fuad Ismayilov.',
         az:
           '1–11-ci siniflər üzrə riyaziyyat, Calculus, fizika, kimya, biologiya, ' +
-          'coğrafiya. Fuad İsmayılovun müəllif elektron dərslikləri.',
+          'coğrafiya, tarix. Fuad İsmayılovun müəllif elektron dərslikləri.',
       },
       link_url: null,
       archived_at: null,
@@ -513,6 +516,252 @@ export const DEFAULT_SITE_BUNDLE: PublicSiteBundle = {
       avatar_initial: 'L',
       avatar_gradient_from: '#A601A9',
       avatar_gradient_to: '#C42BB0',
+      archived_at: null,
+    },
+    {
+      id: 'default-testimonial-3',
+      order_index: 3,
+      quote: {
+        ru:
+          'Пришёл на Full-stack без опыта в программировании. За год собрал реальное ' +
+          'портфолио и получил первую работу junior-разработчиком. Преподаватели-практики ' +
+          'разбирали код вместе со мной и помогали готовиться к собеседованиям.',
+        en:
+          'I started Full-stack with zero coding experience. In a year I built a real ' +
+          'portfolio and landed my first job as a junior developer. The teachers are ' +
+          'working engineers — they reviewed my code with me and helped me prep for interviews.',
+        az:
+          'Full-stack-ə proqramlaşdırma təcrübəsi olmadan gəldim. Bir ildə real portfolio ' +
+          'topladım və junior developer kimi ilk işimə düzəldim. Müəllimlər praktiklərdir — ' +
+          'kodu mənimlə birlikdə təhlil etdilər və müsahibəyə hazırlaşmağa kömək etdilər.',
+      },
+      author_name: 'Elvin Quliyev',
+      author_role: {
+        ru: 'выпускник IT-направления, Баку',
+        en: 'IT track graduate, Baku',
+        az: 'IT istiqamətinin məzunu, Bakı',
+      },
+      avatar_initial: 'E',
+      avatar_gradient_from: '#5A2BD8',
+      avatar_gradient_to: '#2415C2',
+      archived_at: null,
+    },
+    {
+      id: 'default-testimonial-4',
+      order_index: 4,
+      quote: {
+        ru:
+          'Записалась на английский почти с нуля и через полтора года сдала TOEFL на ' +
+          'нужный балл. Очень помогли электронное приложение и индивидуальный план — ' +
+          'занималась в своём темпе и видела прогресс по каждой теме.',
+        en:
+          'I enrolled in English almost from scratch and a year and a half later passed ' +
+          'TOEFL with the score I needed. The digital app and a personal study plan made ' +
+          'the difference — I learned at my own pace and saw progress on every topic.',
+        az:
+          'İngilis dilinə demək olar ki, sıfırdan yazıldım və bir il yarım sonra TOEFL-u ' +
+          'lazımi balla verdim. Rəqəmsal tətbiq və fərdi plan çox kömək etdi — öz tempimdə ' +
+          'öyrəndim və hər mövzu üzrə tərəqqini gördüm.',
+      },
+      author_name: 'Aysel Mehdiyeva',
+      author_role: {
+        ru: 'студентка курса английского',
+        en: 'English course student',
+        az: 'İngilis dili kursunun tələbəsi',
+      },
+      avatar_initial: 'A',
+      avatar_gradient_from: '#8E18BE',
+      avatar_gradient_to: '#A601A9',
+      archived_at: null,
+    },
+    {
+      id: 'default-testimonial-5',
+      order_index: 5,
+      quote: {
+        ru:
+          'Сын поступил в один из топовых вузов Москвы. Команда Study Abroad помогла с ' +
+          'выбором программы, документами и подготовкой к экзаменам — всё сопровождение ' +
+          'от начала до зачисления было на них.',
+        en:
+          "My son got into one of Moscow's top universities. The Study Abroad team helped " +
+          'with choosing the programme, the paperwork and exam prep — they handled the ' +
+          'whole process from start to enrolment.',
+        az:
+          'Oğlum Moskvanın ən yaxşı universitetlərindən birinə qəbul oldu. Study Abroad ' +
+          'komandası proqram seçimində, sənədlərdə və imtahan hazırlığında kömək etdi — ' +
+          'bütün prosesi əvvəldən qəbula qədər onlar apardı.',
+      },
+      author_name: 'Rəşad Əliyev',
+      author_role: {
+        ru: 'папа первокурсника, Москва',
+        en: 'father of a first-year student, Moscow',
+        az: 'birinci kurs tələbəsinin atası, Moskva',
+      },
+      avatar_initial: 'R',
+      avatar_gradient_from: '#2415C2',
+      avatar_gradient_to: '#A601A9',
+      archived_at: null,
+    },
+    {
+      id: 'default-testimonial-6',
+      order_index: 6,
+      quote: {
+        ru:
+          'Дочь во втором классе и сама просится на занятия. Планшеты и электронные ' +
+          'учебники делают уроки интересными, а мне в приложении видно, что и как ребёнок ' +
+          'прошёл. Спокойна за её прогресс.',
+        en:
+          'My daughter is in second grade and asks to go to her lessons herself. The ' +
+          'tablets and e-textbooks make classes fun, and in the app I can see exactly ' +
+          "what she's covered. I feel at ease about her progress.",
+        az:
+          'Qızım ikinci sinifdədir və dərslərə özü getmək istəyir. Planşetlər və elektron ' +
+          'dərsliklər dərsləri maraqlı edir, tətbiqdə isə uşağın nəyi keçdiyini görürəm. ' +
+          'Onun tərəqqisinə görə arxayınam.',
+      },
+      author_name: 'Günel Hüseynova',
+      author_role: {
+        ru: 'мама ученицы 2 класса',
+        en: 'mother of a 2nd-grade student',
+        az: '2-ci sinif şagirdinin anası',
+      },
+      avatar_initial: 'G',
+      avatar_gradient_from: '#C42BB0',
+      avatar_gradient_to: '#5A2BD8',
+      archived_at: null,
+    },
+    {
+      id: 'default-testimonial-7',
+      order_index: 7,
+      quote: {
+        ru:
+          'Готовился к SAT по математике и набрал 780 из 800. Авторские учебники и ' +
+          'регулярные пробные экзамены сделали своё — на реальном тесте не было ни одного ' +
+          'сюрприза. Теперь подаюсь в сильные университеты.',
+        en:
+          'I prepped for SAT Math and scored 780 out of 800. The original textbooks and ' +
+          'regular mock exams did the job — there was not a single surprise on the real ' +
+          'test. Now I am applying to strong universities.',
+        az:
+          'SAT riyaziyyata hazırlaşdım və 800-dən 780 topladım. Müəllif dərslikləri və ' +
+          'müntəzəm sınaq imtahanları öz işini gördü — real testdə bir dənə də sürpriz ' +
+          'olmadı. İndi güclü universitetlərə sənəd verirəm.',
+      },
+      author_name: 'Tural Babayev',
+      author_role: {
+        ru: 'выпускник, SAT Math 780',
+        en: 'graduate, SAT Math 780',
+        az: 'məzun, SAT Math 780',
+      },
+      avatar_initial: 'T',
+      avatar_gradient_from: '#A601A9',
+      avatar_gradient_to: '#5A2BD8',
+      archived_at: null,
+    },
+  ],
+  results: [
+    {
+      id: 'default-result-0',
+      order_index: 0,
+      author_name: 'Aysel Mehdiyeva',
+      photo_url: null,
+      avatar_initial: 'A',
+      avatar_gradient_from: '#C42BB0',
+      avatar_gradient_to: '#8E18BE',
+      course: { ru: 'SAT / Математика', en: 'SAT / Mathematics', az: 'SAT / Riyaziyyat' },
+      admission: {
+        ru: 'Boğaziçi University · стипендия',
+        en: 'Boğaziçi University · scholarship',
+        az: 'Boğaziçi University · təqaüd',
+      },
+      archived_at: null,
+    },
+    {
+      id: 'default-result-1',
+      order_index: 1,
+      author_name: 'Tural Babayev',
+      photo_url: null,
+      avatar_initial: 'T',
+      avatar_gradient_from: '#A601A9',
+      avatar_gradient_to: '#5A2BD8',
+      course: { ru: 'SAT Math', en: 'SAT Math', az: 'SAT Math' },
+      admission: {
+        ru: 'Koç University · грант 50%',
+        en: 'Koç University · 50% grant',
+        az: 'Koç University · 50% qrant',
+      },
+      archived_at: null,
+    },
+    {
+      id: 'default-result-2',
+      order_index: 2,
+      author_name: 'Nigar Hüseynova',
+      photo_url: null,
+      avatar_initial: 'N',
+      avatar_gradient_from: '#2415C2',
+      avatar_gradient_to: '#5A2BD8',
+      course: {
+        ru: 'IELTS / Study Abroad',
+        en: 'IELTS / Study Abroad',
+        az: 'IELTS / Study Abroad',
+      },
+      admission: {
+        ru: 'University of Toronto',
+        en: 'University of Toronto',
+        az: 'University of Toronto',
+      },
+      archived_at: null,
+    },
+    {
+      id: 'default-result-3',
+      order_index: 3,
+      author_name: 'Kamran Əliyev',
+      photo_url: null,
+      avatar_initial: 'K',
+      avatar_gradient_from: '#7A1FC8',
+      avatar_gradient_to: '#A601A9',
+      course: { ru: 'DİM / Математика', en: 'DİM / Mathematics', az: 'DİM / Riyaziyyat' },
+      admission: {
+        ru: 'ADA University · грант',
+        en: 'ADA University · grant',
+        az: 'ADA University · qrant',
+      },
+      archived_at: null,
+    },
+    {
+      id: 'default-result-4',
+      order_index: 4,
+      author_name: 'Leyla Mammadova',
+      photo_url: null,
+      avatar_initial: 'L',
+      avatar_gradient_from: '#A601A9',
+      avatar_gradient_to: '#C42BB0',
+      course: { ru: 'IELTS / TOEFL', en: 'IELTS / TOEFL', az: 'IELTS / TOEFL' },
+      admission: {
+        ru: 'METU (Турция)',
+        en: 'METU (Turkey)',
+        az: 'METU (Türkiyə)',
+      },
+      archived_at: null,
+    },
+    {
+      id: 'default-result-5',
+      order_index: 5,
+      author_name: 'Elvin Quliyev',
+      photo_url: null,
+      avatar_initial: 'E',
+      avatar_gradient_from: '#5A2BD8',
+      avatar_gradient_to: '#2415C2',
+      course: {
+        ru: 'IT / Олимпиадная математика',
+        en: 'IT / Competition mathematics',
+        az: 'IT / Olimpiada riyaziyyatı',
+      },
+      admission: {
+        ru: 'ITMO University · бюджет',
+        en: 'ITMO University · state-funded',
+        az: 'ITMO University · büdcə',
+      },
       archived_at: null,
     },
   ],

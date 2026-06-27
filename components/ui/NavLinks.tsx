@@ -8,7 +8,7 @@ interface NavLink {
 }
 
 /**
- * Desktop (≥lg) nav link row with scroll-spy: a single IntersectionObserver
+ * Desktop (≥xl) nav link row with scroll-spy: a single IntersectionObserver
  * over the in-page section ids highlights the link for the section currently in
  * view. Server ``Nav`` passes the already-localized links in.
  */
@@ -53,7 +53,7 @@ export function NavLinks({ links }: { links: NavLink[] }) {
   }, [links]);
 
   return (
-    <div className="hidden gap-7 lg:flex">
+    <div className="hidden gap-6 xl:flex">
       {links.map((link) => {
         const isActive = link.href.slice(1) === active;
         return (
