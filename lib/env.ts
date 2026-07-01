@@ -36,4 +36,18 @@ export const env = {
   get YANDEX_VERIFICATION(): string | undefined {
     return process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || undefined;
   },
+  /** Analytics IDs — optional; scripts load only when set. Public by nature. */
+  get GA_ID(): string | undefined {
+    return process.env.NEXT_PUBLIC_GA_ID || undefined;
+  },
+  get YM_ID(): string | undefined {
+    return process.env.NEXT_PUBLIC_YM_ID || undefined;
+  },
+  /** Exact business coordinates for the LocalBusiness ``geo`` node (optional). */
+  get GEO_LAT(): string | undefined {
+    return process.env.NEXT_PUBLIC_GEO_LAT || undefined;
+  },
+  get GEO_LNG(): string | undefined {
+    return process.env.NEXT_PUBLIC_GEO_LNG || undefined;
+  },
 };

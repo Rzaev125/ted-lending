@@ -16,6 +16,7 @@
  */
 
 import type { PublicSiteBundle } from './content';
+import { env } from './env';
 import { SOCIAL_PROFILE_URLS } from './links';
 import { type LocalizedText, resolveLocalized } from './localized';
 
@@ -54,6 +55,14 @@ export function buildSiteJsonLd({
   const logo = content.meta.logo_url ?? `${baseUrl}/Logo.avif`;
   const firstBio = content.founder.bio_paragraphs?.[0] as LocalizedText | undefined;
 
+  // Include geo only when real coordinates are configured (never guess).
+  const lat = Number(env.GEO_LAT);
+  const lng = Number(env.GEO_LNG);
+  const geo =
+    env.GEO_LAT && env.GEO_LNG && Number.isFinite(lat) && Number.isFinite(lng)
+      ? { '@type': 'GeoCoordinates', latitude: lat, longitude: lng }
+      : undefined;
+
   const organization = {
     '@type': ['EducationalOrganization', 'LocalBusiness'],
     '@id': orgId,
@@ -70,6 +79,7 @@ export function buildSiteJsonLd({
       addressLocality: ADDRESS_LOCALITY,
       addressCountry: ADDRESS_COUNTRY,
     },
+    geo,
     areaServed: [{ '@type': 'City', name: 'Baku' }, 'Online'],
     openingHoursSpecification: [OPENING_HOURS],
     sameAs: SOCIAL_PROFILE_URLS,

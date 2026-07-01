@@ -4,6 +4,13 @@ import { MapPin } from 'lucide-react';
 import type { ContactsContent } from '@/lib/content';
 import { resolveLocalized } from '@/lib/localized';
 
+/**
+ * Exact TED Academy coordinates for centering the footer map. The embed uses an
+ * empty ``q`` so Google draws NO marker — the decorative pin overlay marks the
+ * spot instead.
+ */
+const MAP_COORDS = '40.366784497944025,49.81460820200889';
+
 export async function Footer({
   contacts,
   locale,
@@ -58,11 +65,12 @@ export async function Footer({
 }
 
 /**
- * Live Google Maps embed centered on TED Academy in Baku. Uses the keyless
- * ``output=embed`` search URL (no API key) so Google resolves the business
- * location by name. A CMS-provided ``map_link`` is honored only when it is
- * itself an embeddable URL (normal share links can't be framed). The iframe is
- * allowed by the ``frame-src`` directive in ``next.config.ts``.
+ * Live Google Maps embed for TED Academy via the keyless ``output=embed`` URL
+ * (no API key), centered on {@link MAP_COORDS} with an empty ``q`` so Google
+ * draws NO marker — the decorative pin overlay below marks the spot instead. A
+ * CMS-provided ``map_link`` is honored only when it is itself an embeddable URL
+ * (normal share links can't be framed). The iframe is allowed by the
+ * ``frame-src`` directive in ``next.config.ts``.
  */
 function MapEmbed({
   mapLink,
@@ -90,7 +98,7 @@ function MapEmbed({
   const src =
     mapLink && isEmbeddableGoogleMap(mapLink)
       ? mapLink
-      : `https://maps.google.com/maps?q=${encodeURIComponent('TED Academy, Baku')}&z=15&hl=${locale}&output=embed`;
+      : `https://maps.google.com/maps?q=&ll=${MAP_COORDS}&z=17&hl=${locale}&output=embed`;
   return (
     <div className="group relative overflow-hidden rounded-[20px] border border-glass-border">
       <iframe

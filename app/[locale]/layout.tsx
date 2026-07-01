@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
 
+import { Analytics } from '@/components/analytics/Analytics';
 import { Blobs } from '@/components/ui/Blobs';
 import { ScrollToTop } from '@/components/ui/ScrollToTop';
 import { env } from '@/lib/env';
@@ -72,6 +73,7 @@ export default async function LocaleLayout({
           </main>
           <ScrollToTop />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

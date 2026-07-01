@@ -14,12 +14,16 @@ const withNextIntl = createNextIntlPlugin('./lib/i18n.ts');
  */
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  // googletagmanager (GA4) + mc.yandex.ru (Metrica) load their tag scripts.
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://mc.yandex.ru",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
   "font-src 'self'",
-  "connect-src 'self'",
-  'frame-src https://www.google.com https://maps.google.com',
+  // Analytics beacons: GA → *.google-analytics.com / *.analytics.google.com,
+  // Metrica → mc.yandex.ru / mc.yandex.com.
+  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://mc.yandex.ru https://mc.yandex.com",
+  // Google Maps embed (footer) + Metrica webvisor frame.
+  'frame-src https://www.google.com https://maps.google.com https://mc.yandex.ru',
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "object-src 'none'",
